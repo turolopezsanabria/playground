@@ -1,0 +1,32 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sui-bundler build -C",
+    "start": "sui-bundler dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  },
+  "devDependencies": {
+    "@s-ui/bundler": "^6.22.0",
+    "@s-ui/component-dependencies": "^1.6.0",
+    "@s-ui/component-peer-dependencies": "^1.9.0",
+    "@s-ui/mono": "^1.60.0",
+    "babel-preset-sui": "^3.14.0"
+  },
+  "dependencies": {
+    "@s-ui/react-atom-button": "^1.53.0"
+  }
+}
