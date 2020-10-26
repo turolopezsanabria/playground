@@ -1,6 +1,6 @@
-@import '../node_modules/@schibstedspain/theme-basic/lib/index.scss';
+@import '~@s-ui/theme/lib/index';
 
-$color: white;
+$color: #ccc;
 
 body {
   background: $color;

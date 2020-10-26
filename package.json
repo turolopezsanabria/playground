@@ -2,7 +2,7 @@
   "name": "playground",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "App.js",
   "scripts": {
     "build": "sui-bundler build -C",
     "start": "sui-bundler dev"
@@ -27,6 +27,7 @@
     "babel-preset-sui": "^3.14.0"
   },
   "dependencies": {
-    "@s-ui/react-atom-button": "^1.53.0"
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/theme": "^8.87.0"
   }
 }
