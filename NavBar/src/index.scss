@@ -1,0 +1,33 @@
+@import '~@s-ui/theme/lib/index';
+@import '~@adv-ui/ma-theme/lib/index';
+@import '~@s-ui/react-atom-button/lib/index.scss';
+
+body {
+  background: $c-gray-light-3;
+  padding: 0;
+}
+
+.main {
+  background: $c-white;
+  max-width: 360px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 560px;
+  border-radius: 4px;
+}
+
+.header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  border-bottom: solid $bdw-s $c-gray-light-3;
+}
+.logo {
+  margin: $m-l;
+}
+.actions {
+  position: absolute;
+  right: $m-l;
+  align-items: center;
+  display: flex;
+}
