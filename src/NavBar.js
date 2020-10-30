@@ -18,7 +18,7 @@ export default class Hello extends Component {
                 color="neutral"
                 className="sui-AtomButton--empty"
               >
-                <img src="img/burger.svg" />
+                <img src="img/burger.svg"/>
               </Button>
             </div>
           </div>
