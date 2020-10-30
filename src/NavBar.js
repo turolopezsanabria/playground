@@ -10,10 +10,16 @@ export default class Hello extends Component {
           <div className="header">
             <img className="logo" src="img/logo.svg" />
             <div className="actions">
-              <Button color="neutral">Menu</Button>
-              {/* <Button color="neutral" className="sui-AtomButton--empty">
-                <img src="img/ic_burger.svg" />
+              {/* <Button size="small" color="neutral">
+                Menu
               </Button> */}
+              <Button
+                size="small"
+                color="neutral"
+                className="sui-AtomButton--empty"
+              >
+                <img src="img/ic_burger.svg" />
+              </Button>
             </div>
           </div>
         </div>
