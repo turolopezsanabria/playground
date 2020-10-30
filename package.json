@@ -2,7 +2,7 @@
   "name": "playground",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
+  "main": "src/App.js",
   "scripts": {
     "build": "sui-bundler build -C",
     "start": "sui-bundler dev"
