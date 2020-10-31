@@ -14,7 +14,6 @@ export default class Hello extends Component {
                 Menu
               </Button> */}
               <Button
-                size="small"
                 color="neutral"
                 className="sui-AtomButton--empty"
               >
