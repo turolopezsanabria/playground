@@ -5,7 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "build": "sui-bundler build -C",
-    "start": "sui-bundler dev"
+    "start": "sui-bundler dev",
+    "lint": "sui-lint js && sui-lint sass"
   },
   "keywords": [],
   "author": "",
