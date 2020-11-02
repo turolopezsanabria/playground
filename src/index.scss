@@ -1,10 +1,14 @@
 @import '~@s-ui/theme/lib/index';
 @import '~@adv-ui/ma-theme/lib/index';
 @import '~@s-ui/react-atom-button/lib/index.scss';
+@import '~@s-ui/react-atom-popover/lib/index.scss';
+@import '~@s-ui/react-atom-icon/lib/index.scss';
 
 body {
   padding: 0;
   margin: 0;
+  background: $c-gray-light-4;
+  font-family: $ff-sans-serif;
 }
 
 .main {
@@ -17,7 +21,7 @@ body {
   height: 64px;
   display: flex;
   align-items: center;
-  border-bottom: solid $bdw-s $c-gray-light-3;
+  background-color: $c-white;
 }
 .logo {
   margin: $m-l;
@@ -27,4 +31,45 @@ body {
   right: $m-l;
   align-items: center;
   display: flex;
+}
+
+.navigation-menu{ 
+  font-family: $ff-sans-serif;
+  // this one below is just for prototyping, should be changed in Milanuncios Theme
+  .sui-AtomButton + .sui-AtomButton {
+    margin-left: 0px;
+  }
+  ul{
+    @include reset-list;
+    font-size: $fz-m;
+    text-align: left;
+    li{
+      cursor: default;
+      &:hover{
+        background-color: $c-gray-light-4;
+      }
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding: $p-m $p-l ;
+      padding: $p-s $p-m;
+      margin: $p-m;
+      border-radius: $bdrs-base/2;
+      .label{
+        margin-left: $m-m;
+      }
+      &.publica{
+        background: $c-accent;
+          &:hover{
+            background: $c-accent-light-4;
+        }
+      }
+    }
+  }
+}
+
+// these changes below are just for prototyping, should be changed in Milanuncios Theme
+.sui-AtomPopover .sui-AtomPopover-inner{
+  padding: 0;
+  border: 0;
 }

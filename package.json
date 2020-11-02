@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/turolopezsanabria/playground.git"
+  },
   "scripts": {
     "build": "sui-bundler build -C",
     "start": "sui-bundler dev",
@@ -29,6 +33,8 @@
   },
   "dependencies": {
     "@adv-ui/ma-theme": "^4.29.0",
-    "@s-ui/react-atom-button": "1"
+    "@s-ui/react-atom-button": "1",
+    "@s-ui/react-atom-icon": "^1.6.0",
+    "@s-ui/react-atom-popover": "^1.10.0"
   }
 }
