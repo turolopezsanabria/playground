@@ -33,35 +33,35 @@ body {
   display: flex;
 }
 
-.navigation-menu{ 
+.navigation-menu {
   font-family: $ff-sans-serif;
   // this one below is just for prototyping, should be changed in Milanuncios Theme
   .sui-AtomButton + .sui-AtomButton {
     margin-left: 0px;
   }
-  ul{
+  ul {
     @include reset-list;
     font-size: $fz-m;
     text-align: left;
-    li{
+    li {
       cursor: default;
-      &:hover{
+      &:hover {
         background-color: $c-gray-light-4;
       }
       height: 32px;
       display: flex;
       align-items: center;
-      padding: $p-m $p-l ;
+      padding: $p-m $p-l;
       padding: $p-s $p-m;
       margin: $p-m;
       border-radius: $bdrs-base/2;
-      .label{
+      .label {
         margin-left: $m-m;
       }
-      &.publica{
+      &.publica {
         background: $c-accent;
-          &:hover{
-            background: $c-accent-light-4;
+        &:hover {
+          background: $c-accent-light-4;
         }
       }
     }
@@ -69,7 +69,7 @@ body {
 }
 
 // these changes below are just for prototyping, should be changed in Milanuncios Theme
-.sui-AtomPopover .sui-AtomPopover-inner{
+.sui-AtomPopover .sui-AtomPopover-inner {
   padding: 0;
   border: 0;
 }
