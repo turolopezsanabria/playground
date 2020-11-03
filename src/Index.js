@@ -6,13 +6,13 @@ export default function Index() {
       <nav className="navigation-menu">
         <ul>
           <li>
-            <Button link color="primary" href="NavBar">
+            <Button link color="primary" href="/">
               Popover
             </Button>
           </li>
           <li>
             <Button link color="primary" href="Drawer">
-              Drawer{' '}
+              Drawer
             </Button>
           </li>
         </ul>

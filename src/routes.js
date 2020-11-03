@@ -7,6 +7,6 @@ export default (
   <Router>
     <Route path="/" component={NavBar} />
     <Route path="Index" component={Index} />
-    <Route path="/Drawer" component={Drawer} />
+    <Route path="Drawer" component={Drawer} />
   </Router>
 )
