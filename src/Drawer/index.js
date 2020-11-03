@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import './index.scss'
 import Button from '@s-ui/react-atom-button'
 import AtomIcon from '@s-ui/react-atom-icon'
 
