@@ -68,6 +68,19 @@ body {
   }
 }
 
+.drawer{
+  position: absolute;
+  display: flex;
+
+  background: $c-white;
+  height: 100vh;
+  top: 64px;
+  right: -242px;
+  &.open{
+    right: 0px;
+  }
+}
+
 // these changes below are just for prototyping, should be changed in Milanuncios Theme
 .sui-AtomPopover .sui-AtomPopover-inner {
   padding: 0;

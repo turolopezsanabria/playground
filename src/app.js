@@ -1,8 +1,6 @@
 /* eslint-disable no-console */
 import ReactDOM from 'react-dom'
-import NavBar from './NavBar'
+import {Router} from '@s-ui/react-router'
+import routes from './routes'
 
-const render = Component =>
-  ReactDOM.render(<Component />, document.getElementById('root'))
-
-render(NavBar)
+ReactDOM.hydrate(<Router>{routes}</Router>, document.getElementById('root'))
