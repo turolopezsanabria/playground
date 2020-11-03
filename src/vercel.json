@@ -1,4 +1,0 @@
-
-{
-    "routes": [{ "src": "/about", "dest": "/about.html" }]
-  }
