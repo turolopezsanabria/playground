@@ -1,0 +1,24 @@
+@import '~@s-ui/theme/lib/index.scss';
+@import '~@adv-ui/ma-theme/lib/index.scss';
+@import '~@s-ui/react-atom-button/lib/index.scss';
+@import '~@s-ui/react-atom-popover/lib/index.scss';
+@import '~@s-ui/react-atom-icon/lib/index.scss';
+@import '../styles/navBar.scss';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
