@@ -1,7 +1,5 @@
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
-const Button = dynamic(() => {return import('@s-ui/react-atom-button')}, {ssr:false})
-
+import Button from '@s-ui/react-atom-button'
 
 export default function Home() {
   return (

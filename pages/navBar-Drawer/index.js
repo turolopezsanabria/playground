@@ -1,7 +1,6 @@
 import {useState} from 'react'
-import dynamic from 'next/dynamic'
-const Button = dynamic(() => {return import('@s-ui/react-atom-button')}, {ssr:false})
-const AtomIcon = dynamic(() => {return import('@s-ui/react-atom-icon')}, {ssr:false})
+import Button from '@s-ui/react-atom-button'
+import AtomIcon from '@s-ui/react-atom-icon'
 
 export default function Drawer() {
   const [displayStatus, openModal] = useState(false)
