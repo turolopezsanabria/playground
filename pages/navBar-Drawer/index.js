@@ -4,7 +4,7 @@ import AtomIcon from '@s-ui/react-atom-icon'
 
 export default function Drawer() {
   const [displayStatus, openModal] = useState(false)
-  const claso = displayStatus ? 'drawer open' : 'drawer'
+  const openOrClosed = displayStatus ? 'drawer open' : 'drawer'
   return (
     <div className="App">
       <div className="main">
@@ -22,7 +22,7 @@ export default function Drawer() {
             </div>
           </div>
         </div>
-        <div>
+        <div className={openOrClosed}>
           <nav aria-labelledby="navigation menu" className="navigation-menu">
             <ul>
               <li>
