@@ -7,7 +7,7 @@ export default function Drawer() {
   const [displayStatus, openModal] = useState(false)
   const openOrClosed = displayStatus ? 'drawer open' : 'drawer'
   return (
-    <div className="App-1">
+    <div className="App-1 pop">
       <div className="main-fullWidth">
         <div className="header">
           <Link href="./">

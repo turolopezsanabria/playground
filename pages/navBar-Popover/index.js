@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function NavBar() {
   return (
-    <div className="App-1">
+    <div className="App-1 pop">
       <div className="main-960">
         <div className="header">
           <Link href="./">

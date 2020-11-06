@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div>
+    <div className="pop">
       <Head>
         <title>turo's playground</title>
         <link rel="icon" href="/favicon.ico" />
