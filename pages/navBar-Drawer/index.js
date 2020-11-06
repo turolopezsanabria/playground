@@ -7,7 +7,7 @@ export default function Drawer() {
   const openOrClosed = displayStatus ? 'drawer open' : 'drawer'
   return (
     <div className="App-1">
-      <div className="main-2">
+      <div className="main-fullWidth">
         <div className="header">
           <a href="./">
             <img alt="logo" className="logo" src="img/logo-ma.svg" />

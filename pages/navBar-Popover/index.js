@@ -5,7 +5,7 @@ import AtomPopover, {atomPopoverPositions} from '@s-ui/react-atom-popover'
 export default function NavBar() {
   return (
     <div className="App-1">
-      <div className="main-1">
+      <div className="main-960">
         <div className="header">
           <a href="./">
             <img alt="logo" className="logo" src="img/logo-ma.svg" />
