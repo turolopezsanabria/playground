@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
 const Button = dynamic(() => {return import('@s-ui/react-atom-button')}, {ssr:false})
 const AtomPopover = dynamic(() => {return import('@s-ui/react-atom-popover')}, {ssr:false})
-const atomPopoverPositions = dynamic(() => {return import('@s-ui/react-atom-popover')}, {ssr:false})
 const AtomIcon = dynamic(() => {return import('@s-ui/react-atom-icon')}, {ssr:false})
 
 export default function NavBar() {
@@ -12,7 +11,7 @@ export default function NavBar() {
           <img alt="logo" className="logo" src="./img/logo.svg" />
           <div className="actions">
             <AtomPopover
-              placement={atomPopoverPositions.BOTTOM_END}
+              placement="bottom-end"
               onClose={() => console.log('CLOSE POPOVER!')}
               content={
                 <nav
