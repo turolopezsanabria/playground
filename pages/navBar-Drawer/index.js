@@ -6,10 +6,12 @@ export default function Drawer() {
   const [displayStatus, openModal] = useState(false)
   const openOrClosed = displayStatus ? 'drawer open' : 'drawer'
   return (
-    <div className="App">
+    <div className="App-1">
       <div className="main">
         <div className="header">
-          <img alt="logo" className="logo" src="img/logo.svg" />
+          <a href="./">
+            <img alt="logo" className="logo" src="img/logo-ma.svg" />
+          </a>
           <div className="actions">
             <div>
               <Button

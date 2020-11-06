@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Button from '@s-ui/react-atom-button'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -9,18 +9,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <nav className="navigation-menu">
+      <main className="home">
+        <nav className="home-navigation">
+          <h1>turo's playground</h1>
           <ul>
             <li>
-              <Button link size="small" color="primary" href="navBar-Popover">
-                Popover
-              </Button>
+              <Link href="/navBar-Popover">
+                <a>Popover</a>
+              </Link>
             </li>
             <li>
-              <Button link size="small" color="primary" href="navBar-Drawer">
-                Drawer
-              </Button>
+              <Link href="/navBar-Drawer">
+                <a>Drawer</a>
+              </Link>
             </li>
           </ul>
         </nav>

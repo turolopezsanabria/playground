@@ -1,4 +1,5 @@
-.App {
+.App-1 {
+  // gray background + rubik
   padding: 0;
   margin: 0;
   background: $c-gray-light-4;
@@ -38,7 +39,6 @@
   }
   ul {
     color: $c-gray-dark-3;
-    @include reset-list;
     font-size: $fz-m;
     text-align: left;
     li {
