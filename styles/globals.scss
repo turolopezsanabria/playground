@@ -70,6 +70,7 @@ $base-spacing: 8px;
         letter-spacing: 2px;
         color: black;
         font-weight: 300;
+        border-radius: 999px;
       }
     }
   }
@@ -80,19 +81,35 @@ $base-spacing: 8px;
 }
 
 @media (hover: hover) {
-  ul li a:hover {
-    color: $c-yellow-playground;
-    @keyframes linkHover {
-      from {
-        padding: $base-spacing $base-spacing * 2;
+  ul li a {
+    &:hover {
+      z-index: 999;
+      color: $c-yellow-playground;
+      @keyframes linkHover {
+        from {
+          padding: $base-spacing $base-spacing * 2;
+        }
+        to {
+          padding: $base-spacing * 2 $base-spacing * 4;
+        }
       }
-      to {
-        padding: $base-spacing * 2 $base-spacing * 4;
-      }
+      animation-name: linkHover;
+      animation-duration: 0.1s;
+      padding: $base-spacing * 2 $base-spacing * 4;
     }
-    animation-name: linkHover;
-    animation-duration: 0.1s;
-    padding: $base-spacing * 2 $base-spacing * 4;
+    &:active {
+      @keyframes linkHoverBorder {
+        from {
+          box-shadow: 0 0 0 0 $c-yellow-playground;
+        }
+        to {
+          box-shadow: 0 0 0 999px $c-yellow-playground;
+        }
+      }
+      animation-name: linkHoverBorder;
+    animation-duration: 1s;
+    box-shadow: 0 0 0 999px $c-yellow-playground;
+    }
   }
   ul li:hover {
     @keyframes tagHover {
