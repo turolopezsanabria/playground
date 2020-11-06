@@ -10,20 +10,20 @@ export default function Home() {
       </Head>
 
       <main>
-      <nav className="navigation-menu">
-        <ul>
-          <li>
-            <Button link size="small" color="primary" href="navBar-Popover">
-              Popover
-            </Button>
-          </li>
-          <li>
-            <Button link size="small" color="primary" href="navBar-Drawer">
-              Drawer
-            </Button>
-          </li>
-        </ul>
-      </nav>
+        <nav className="navigation-menu">
+          <ul>
+            <li>
+              <Button link size="small" color="primary" href="navBar-Popover">
+                Popover
+              </Button>
+            </li>
+            <li>
+              <Button link size="small" color="primary" href="navBar-Drawer">
+                Drawer
+              </Button>
+            </li>
+          </ul>
+        </nav>
       </main>
     </div>
   )

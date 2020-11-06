@@ -2,10 +2,22 @@
   "name": "Playground",
   "version": "0.1.0",
   "private": true,
+  "author": "turo",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint-sass": "sui-lint sass --pattern styles --fix",
+    "lint-js": "sui-lint js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
   },
   "dependencies": {
     "@adv-ui/ma-theme": "^4.31.0",
@@ -18,5 +30,8 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.29.0"
+  },
+  "devDependencies": {
+    "@s-ui/lint": "^3.25.0"
   }
 }

@@ -1,6 +1,6 @@
 import Button from '@s-ui/react-atom-button'
 import AtomIcon from '@s-ui/react-atom-icon'
-import AtomPopover, { atomPopoverPositions } from '@s-ui/react-atom-popover'
+import AtomPopover, {atomPopoverPositions} from '@s-ui/react-atom-popover'
 
 export default function NavBar() {
   return (
@@ -11,7 +11,6 @@ export default function NavBar() {
           <div className="actions">
             <AtomPopover
               placement={atomPopoverPositions.BOTTOM_END}
-              onClose={() => console.log('CLOSE POPOVER!')}
               content={
                 <nav
                   aria-labelledby="navigation menu"
@@ -61,4 +60,3 @@ export default function NavBar() {
     </div>
   )
 }
-

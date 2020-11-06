@@ -22,7 +22,7 @@ export default function Drawer() {
             </div>
           </div>
         </div>
-        <div className={claso}>
+        <div className={}>
           <nav aria-labelledby="navigation menu" className="navigation-menu">
             <ul>
               <li>
