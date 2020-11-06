@@ -1,15 +1,16 @@
 import Button from '@s-ui/react-atom-button'
 import AtomIcon from '@s-ui/react-atom-icon'
 import AtomPopover, {atomPopoverPositions} from '@s-ui/react-atom-popover'
+import Link from 'next/link'
 
 export default function NavBar() {
   return (
     <div className="App-1">
       <div className="main-960">
         <div className="header">
-          <a href="./">
+          <Link href="./">
             <img alt="logo" className="logo" src="img/logo-ma.svg" />
-          </a>
+          </Link>
           <div className="actions">
             <AtomPopover
               placement={atomPopoverPositions.BOTTOM_END}

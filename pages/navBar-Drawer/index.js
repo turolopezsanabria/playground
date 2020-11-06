@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Button from '@s-ui/react-atom-button'
 import AtomIcon from '@s-ui/react-atom-icon'
+import Link from 'next/link'
 
 export default function Drawer() {
   const [displayStatus, openModal] = useState(false)
@@ -9,9 +10,9 @@ export default function Drawer() {
     <div className="App-1">
       <div className="main-fullWidth">
         <div className="header">
-          <a href="./">
+          <Link href="./">
             <img alt="logo" className="logo" src="img/logo-ma.svg" />
-          </a>
+          </Link>
           <div className="actions">
             <div>
               <Button

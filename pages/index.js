@@ -5,13 +5,20 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Turo's playground</title>
+        <title>turo's playground</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className="home">
         <nav className="home-navigation">
-          <h1>turo's playground</h1>
+          <h1>
+            turo's playground
+            <a
+              target="_blank"
+              href="https://github.com/turolopezsanabria/playground"
+            >
+              Code in github
+            </a>
+          </h1>
           <ul>
             <li>
               <Link href="/navBar-Popover">

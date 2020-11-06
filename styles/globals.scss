@@ -39,6 +39,15 @@ $base-spacing: 8px;
       font-size: 18px;
       color: $c-text-playground;
       letter-spacing: 2px;
+      text-transform: uppercase;
+      a{
+        display: block;
+        font-size: 12px;
+        text-decoration: underline;
+        margin-top: $base-spacing;
+        letter-spacing: initial;
+        font-weight: normal;
+      }
     }
   }
   ul {

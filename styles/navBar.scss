@@ -32,6 +32,9 @@
 }
 .logo {
   margin: $m-l;
+  &:hover{
+    cursor: pointer;
+  }
 }
 .actions {
   position: absolute;
