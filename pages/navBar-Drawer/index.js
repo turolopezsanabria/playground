@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function Drawer() {
   const [displayStatus, openModal] = useState(false)
-  const openOrClosed = displayStatus ? 'drawer open' : 'drawer'
+  const openOrClosed = displayStatus ? 'drawer open' : 'drawer closed'
   return (
     <div className="App-1 pop">
       <div className="main-fullWidth">

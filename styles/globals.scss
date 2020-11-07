@@ -5,8 +5,8 @@
 @import '~@s-ui/react-atom-icon/lib/index.scss';
 @import '../styles/navBar.scss';
 
-html{
-  background:linear-gradient(132deg, rgba(2,0,36,1) 0%, rgba(16,1,90,1) 71%, rgba(29,2,143,1) 100%);
+html {
+  background: linear-gradient(145deg, #030013 0%, #020024 65%, #10015a 100%);
 }
 html,
 body {
@@ -15,12 +15,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-.pop{
+.pop {
   @keyframes pop {
     from {
       transform: scale(0.8);
       opacity: 0;
-
     }
     to {
       transform: scale(1);
@@ -100,35 +99,36 @@ $base-spacing: 8px;
 }
 
 @media (hover: hover) {
-  .home-navigation{
-  ul li a {
-    &:hover {
-      z-index: 999;
-      @keyframes linkHover {
+  .home-navigation {
+    ul li a {
+      &:hover {
+        z-index: 999;
+        @keyframes linkHover {
+          from {
+            padding: $base-spacing $base-spacing * 2;
+          }
+          to {
+            padding: $base-spacing * 2 $base-spacing * 4;
+          }
+        }
+        animation-name: linkHover;
+        animation-duration: 0.2s;
+        padding: $base-spacing * 2 $base-spacing * 4;
+        color: $c-yellow-playground;
+      }
+    }
+    ul li:hover {
+      @keyframes tagHover {
         from {
-          padding: $base-spacing $base-spacing * 2;
+          box-shadow: inset 0 0 0 24px $c-yellow-playground;
         }
         to {
-          padding: $base-spacing * 2 $base-spacing * 4;
+          box-shadow: inset 0 0 0 2px $c-yellow-playground;
         }
       }
-      animation-name: linkHover;
+      animation-name: tagHover;
       animation-duration: 0.2s;
-      padding: $base-spacing * 2 $base-spacing * 4;
-      color: $c-yellow-playground;
+      box-shadow: inset 0 0 0 2px $c-yellow-playground;
     }
   }
-  ul li:hover {
-    @keyframes tagHover {
-      from {
-        box-shadow: inset 0 0 0 24px $c-yellow-playground;
-      }
-      to {
-        box-shadow: inset 0 0 0 2px $c-yellow-playground;
-      }
-    }
-    animation-name: tagHover;
-    animation-duration: 0.2s;
-    box-shadow: inset 0 0 0 2px $c-yellow-playground;
-  }
-}}
+}

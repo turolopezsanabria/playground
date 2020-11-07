@@ -32,9 +32,6 @@
 }
 .logo {
   margin: $m-l;
-  &:hover {
-    cursor: pointer;
-  }
 }
 .actions {
   position: absolute;
@@ -54,14 +51,10 @@
     text-align: left;
     li {
       cursor: default;
-      &:hover {
-        background-color: $c-gray-light-4;
-      }
-      height: 32px;
+      height: 40px;
       display: flex;
       align-items: center;
-      padding: $p-m $p-l;
-      padding: $p-s $p-m;
+      padding: $p-m;
       margin: $p-m;
       border-radius: $bdrs-base/2;
       .label {
@@ -69,16 +62,13 @@
       }
       &.publica {
         background: $c-accent;
-        &:hover {
-          background: $c-accent-light-4;
-        }
       }
     }
   }
 }
 
 .drawer {
-  @keyframes open {
+  @keyframes opendrawer {
     from {
       right: -224px;
     }
@@ -86,7 +76,7 @@
       right: 0;
     }
   }
-  @keyframes close {
+  @keyframes closedrawer {
     from {
       right: 0;
     }
@@ -101,13 +91,30 @@
   background: $c-white;
   height: 100vh;
   top: 64px;
-  animation-name: close;
-  animation-duration: 0.5s;
   right: -224px;
   &.open {
-    animation-name: open;
+    animation-name: opendrawer;
     animation-duration: 0.5s;
-    right: 0;
+    animation-fill-mode: forwards;
+  }
+  &.closed {
+    animation-name: closedrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards
+  }
+}
+
+@media (hover: hover) {
+  .logo:hover {
+    cursor: pointer;
+  }
+  .navigation-menu ul li {
+    &:hover {
+      background-color: $c-gray-light-4;
+    }
+    &.publica:hover {
+      background: $c-accent-light-4;
+    }
   }
 }
 
