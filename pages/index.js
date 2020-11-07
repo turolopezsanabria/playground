@@ -7,6 +7,7 @@ export default function Home() {
       <Head>
         <title>turo's playground</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#317EFB" />
       </Head>
       <main className="home">
         <nav className="home-navigation">
