@@ -7,8 +7,8 @@ export default function Home() {
       <Head>
         <title>turo's playground</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="#040404">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#040404" />
       </Head>
       <main className="home">
         <nav className="home-navigation">
