@@ -57,11 +57,17 @@
       padding: $p-m;
       margin: $p-m;
       border-radius: $bdrs-base/2;
+      &:active {
+        background: $c-gray-light-3;
+      }
       .label {
         margin-left: $m-m;
       }
       &.publica {
         background: $c-accent;
+        &:active {
+          background: $c-accent-light-3;
+        }
       }
     }
   }
