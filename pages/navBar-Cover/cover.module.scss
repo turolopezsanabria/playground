@@ -1,27 +1,41 @@
-.App-1 {
-  // gray background + rubik
-  padding: 0;
-  margin: 0;
-  background: $c-gray-light-4;
-  font-family: $ff-rubik;
-}
+@import '~@s-ui/theme/lib/index.scss';
+@import '~@adv-ui/ma-theme/lib/index.scss';
 
-.main-960 {
-  max-width: 960px;
-  position: relative;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  height: 100vh;
+.layer{
+  background: $c-white;
+    padding: $p-m;
+    display: none;
+    height: 100vh;
+    position: absolute;
+    box-shadow: $bxsh-l;
 }
-.main-fullWidth {
-  position: relative;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  height: 100vh;
+.layerOn {
+    @keyframes coverOn {
+      from {
+        right: -224px;
+      }
+      to {
+        right: 0;
+      }
+    }
+    display: block;
+    animation-name: coverOn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.layerOff{
+  @keyframes coverOff {
+    from {
+      right: 0;
+    }
+    to {
+      right: -224px;
+    }
+  }
+  display: block;
+  animation-name: closedrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .header {
@@ -33,18 +47,22 @@
 .logo {
   margin: $m-l;
 }
-.actions {
+.CTAvisible {
   position: absolute;
   right: $m-l;
   align-items: center;
   display: flex;
 }
+.CTAinvisible {
+  display: none;
+}
 
-.navigation-menu {
-  // this one below is just for prototyping, should be changed in Milanuncios Theme
+.navigation_menu {
+  // this one between comments is just for prototyping, should be changed in Milanuncios Theme
   .sui-AtomButton + .sui-AtomButton {
     margin-left: 0px;
   }
+  //
   ul {
     color: $c-gray-dark-3;
     font-size: $fz-m;
@@ -92,15 +110,15 @@
   height: 100vh;
   top: 64px;
   right: -224px;
-  &.open {
+  .true {
     animation-name: opendrawer;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
   }
-  &.closed {
+  .false {
     animation-name: closedrawer;
     animation-duration: 0.5s;
-    animation-fill-mode: forwards
+    animation-fill-mode: forwards;
   }
 }
 
@@ -108,7 +126,7 @@
   .logo:hover {
     cursor: pointer;
   }
-  .navigation-menu ul li {
+  .navigation_menu ul li {
     &:hover {
       background-color: $c-gray-light-4;
     }
@@ -116,10 +134,4 @@
       background: $c-accent-light-4;
     }
   }
-}
-
-// these changes below are just for prototyping, should be changed in Milanuncios Theme
-.sui-AtomPopover .sui-AtomPopover-inner {
-  padding: 0;
-  border: 0;
 }

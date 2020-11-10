@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import useOnclickOutside from 'react-cool-onclickoutside'
 import AtomIcon from '@s-ui/react-atom-icon'
-import styles from './Drawer.module.scss'
+import styles from './cover.module.scss'
 import Button from '@s-ui/react-atom-button'
 import Link from 'next/link'
 

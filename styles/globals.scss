@@ -3,7 +3,6 @@
 @import '~@s-ui/react-atom-button/lib/index.scss';
 @import '~@s-ui/react-atom-popover/lib/index.scss';
 @import '~@s-ui/react-atom-icon/lib/index.scss';
-@import '../styles/navBar.scss';
 
 html {
   background: linear-gradient(145deg, #030013 0%, #020024 65%, #10015a 100%);
@@ -98,6 +97,32 @@ $base-spacing: 8px;
   min-height: 100vh;
 }
 
+.App_1 {
+  // gray background + rubik
+  padding: 0;
+  margin: 0;
+  background: $c-gray-light-4;
+  font-family: $ff-rubik;
+}
+
+.main_960 {
+  max-width: 960px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.main-fullWidth {
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
 @media (hover: hover) {
   .home-navigation {
     ul li a {
@@ -131,4 +156,10 @@ $base-spacing: 8px;
       box-shadow: inset 0 0 0 2px $c-yellow-playground;
     }
   }
+}
+
+// these changes below are just for prototyping, should be changed in Milanuncios Theme
+.sui-AtomPopover .sui-AtomPopover-inner {
+  padding: 0;
+  border: 0;
 }

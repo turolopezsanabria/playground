@@ -1,0 +1,138 @@
+@import '~@s-ui/theme/lib/index.scss';
+@import '~@adv-ui/ma-theme/lib/index.scss';
+
+.layer{
+  background: $c-white;
+    padding: $p-m;
+    display: none;
+    height: 100vh;
+    position: absolute;
+    box-shadow: $bxsh-l;
+}
+.layerOn {
+    @keyframes opendrawer {
+      from {
+        right: -224px;
+      }
+      to {
+        right: 0;
+      }
+    }
+    display: block;
+    animation-name: opendrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.layerOff{
+
+  @keyframes closedrawer {
+    from {
+      right: 0;
+    }
+    to {
+      right: -224px;
+    }
+  }
+  display: block;
+  animation-name: closedrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background-color: $c-white;
+}
+.logo {
+  margin: $m-l;
+}
+.CTAvisible {
+  position: absolute;
+  right: $m-l;
+  align-items: center;
+  display: flex;
+}
+.CTAinvisible {
+  display: none;
+}
+
+.navigation_menu {
+  // this one between comments is just for prototyping, should be changed in Milanuncios Theme
+  .sui-AtomButton + .sui-AtomButton {
+    margin-left: 0px;
+  }
+  //
+  ul {
+    color: $c-gray-dark-3;
+    font-size: $fz-m;
+    text-align: left;
+    li {
+      cursor: default;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: $p-m;
+      margin: $p-m;
+      border-radius: $bdrs-base/2;
+      .label {
+        margin-left: $m-m;
+      }
+      &.publica {
+        background: $c-accent;
+      }
+    }
+  }
+}
+
+.drawer {
+  @keyframes opendrawer {
+    from {
+      right: -224px;
+    }
+    to {
+      right: 0;
+    }
+  }
+  @keyframes closedrawer {
+    from {
+      right: 0;
+    }
+    to {
+      right: -224px;
+    }
+  }
+  width: 224px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: $c-white;
+  height: 100vh;
+  top: 64px;
+  right: -224px;
+  .true {
+    animation-name: opendrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  .false {
+    animation-name: closedrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@media (hover: hover) {
+  .logo:hover {
+    cursor: pointer;
+  }
+  .navigation_menu ul li {
+    &:hover {
+      background-color: $c-gray-light-4;
+    }
+    &.publica:hover {
+      background: $c-accent-light-4;
+    }
+  }
+}
