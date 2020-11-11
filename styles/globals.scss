@@ -138,12 +138,11 @@ ul {
   min-height: 100vh;
 }
 
-.MA_current_Desktop{
+.invisible_When_Mobile{
   display: none;
 }
 
-@media (min-width: 960px) {
-  
+@media (min-width: 992px) {
   .MA_current_Desktop{
     display: block;
     padding: $p-base * 2;
@@ -151,21 +150,8 @@ ul {
     img{
       width: 100%;
     }
-    // &::after{
-    //   display: block;
-    //   content: url(../public/img/MA_current_Desktop.png)
-    // }
   }
 }
-
-// .MA_nosidemenu_Desktop{
-//   padding: $p-base * 2;
-//   background: $c-white;
-//   &::after{
-//     display: block;
-//     content: url(../public/img/MA_nosidemenu_Desktop.png)
-//   }
-// }
 
 @media (hover: hover) {
   .home-navigation {

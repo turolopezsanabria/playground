@@ -60,7 +60,7 @@ export default function NavBar() {
             </AtomPopover>
           </div>
         </div>
-        <div className="MA_current_Desktop">
+        <div className="MA_current_Desktop invisible_When_Mobile">
           <img src="img/MA_current_Desktop.png" />
         </div>
       </div>
