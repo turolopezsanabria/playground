@@ -6,7 +6,7 @@ import styles from './popPover.module.scss'
 
 export default function NavBar() {
   return (
-    <div className="App_1 pop">
+    <div className="App_1 fade">
       <div className="main_960">
         <div className={styles.header}>
           <Link href="./">

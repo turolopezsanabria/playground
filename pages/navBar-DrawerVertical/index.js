@@ -25,7 +25,7 @@ export default function Dropdown() {
   }
 
   return (
-    <div className="App_1 pop">
+    <div className="App_1 fade">
       {/* <div className="ignore-onclickoutside" /> */}
       <div className="main_960">
         <div className={styles.header}>
