@@ -121,8 +121,8 @@ ul {
   font-family: $ff-rubik;
 }
 
-.main_960 {
-  max-width: 960px;
+.main_992 {
+  max-width: 992px;
   position: relative;
   margin: 0 auto;
   display: flex;
@@ -136,6 +136,24 @@ ul {
   flex-direction: column;
   overflow: hidden;
   min-height: 100vh;
+}
+
+.MA_current_Desktop{
+  padding: $p-base * 2;
+  background: $c-white;
+  &::after{
+    display: block;
+    content: url(../public/img/MA_current_Desktop.png)
+  }
+}
+
+.MA_nosidemenu_Desktop{
+  padding: $p-base * 2;
+  background: $c-white;
+  &::after{
+    display: block;
+    content: url(../public/img/MA_nosidemenu_Desktop.png)
+  }
 }
 
 @media (hover: hover) {

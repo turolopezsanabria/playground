@@ -7,7 +7,7 @@ import styles from './popPover.module.scss'
 export default function NavBar() {
   return (
     <div className="App_1 fade">
-      <div className="main_960">
+      <div className="main_992">
         <div className={styles.header}>
           <Link href="./">
             <img alt="logo" className={styles.logo} src="img/logo-ma.svg" />
@@ -60,6 +60,7 @@ export default function NavBar() {
             </AtomPopover>
           </div>
         </div>
+        <div className="MA_current_Desktop"> </div>
       </div>
     </div>
   )

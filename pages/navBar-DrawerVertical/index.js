@@ -27,7 +27,7 @@ export default function Dropdown() {
   return (
     <div className="App_1 fade">
       {/* <div className="ignore-onclickoutside" /> */}
-      <div className="main_960">
+      <div className="main_992">
         <div className={styles.header}>
           <Link href="./">
             <img alt="logo" className={styles.logo} src="img/logo-ma.svg" />
@@ -87,6 +87,7 @@ export default function Dropdown() {
             </ul>
           </nav>
         </div>
+        <div className="MA_nosidemenu_Desktop"> </div>
       </div>
     </div>
   )
