@@ -21,6 +21,14 @@ export default function NavBar() {
                   className={styles.navigation_menu}
                 >
                   <ul>
+                    <li className={styles.publica}>
+                      <AtomIcon size="medium">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M7 4a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm0-2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm6 11.067V17a1 1 0 01-2 0v-3.933H7a1 1 0 010-2h4V7a1 1 0 012 0v4.067h4a1 1 0 110 2h-4z" />
+                        </svg>
+                      </AtomIcon>
+                      <span className={styles.label}>Publicar anuncio</span>
+                    </li>
                     <li>
                       <AtomIcon size="medium">
                         <svg viewBox="0 0 24 24">
@@ -36,14 +44,6 @@ export default function NavBar() {
                         </svg>
                       </AtomIcon>
                       <span className={styles.label}>Mis favoritos</span>
-                    </li>
-                    <li className={styles.publica}>
-                      <AtomIcon size="medium">
-                        <svg viewBox="0 0 24 24">
-                          <path d="M7 4a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm0-2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm6 11.067V17a1 1 0 01-2 0v-3.933H7a1 1 0 010-2h4V7a1 1 0 012 0v4.067h4a1 1 0 110 2h-4z" />
-                        </svg>
-                      </AtomIcon>
-                      <span className={styles.label}>Publicar</span>
                     </li>
                   </ul>
                 </nav>
