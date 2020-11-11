@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import useOnclickOutside from 'react-cool-onclickoutside'
 import AtomIcon from '@s-ui/react-atom-icon'
-import styles from './Drawer.module.scss'
+import styles from './drawer.module.scss'
 import Button from '@s-ui/react-atom-button'
 import Link from 'next/link'
 
@@ -11,7 +11,7 @@ export default function Dropdown() {
   const [disabled, setDisabled] = useState(true)
   const ref = useOnclickOutside(
     () => {
-      setLayerState(styles.layerOff)
+      setLayerState(styles.layer_DrawerOff)
       setCallToActionState(styles.CTAvisible)
       setDisabled(true)
     },
@@ -19,7 +19,7 @@ export default function Dropdown() {
   )
 
   const handleClickBtn = () => {
-    setLayerState(styles.layerOn)
+    setLayerState(styles.layer_DrawerOn)
     setCallToActionState(styles.CTAinvisible)
     setDisabled(false)
   }
@@ -45,7 +45,7 @@ export default function Dropdown() {
             </div>
           </div>
         </div>
-        <div ref={ref} className={layerState + ' ' + styles.layer}>
+        <div ref={ref} className={layerState + ' ' + styles.layer_Drawer}>
           <nav
             aria-labelledby="navigation menu"
             className={styles.navigation_menu}

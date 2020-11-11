@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import useOnclickOutside from 'react-cool-onclickoutside'
 import AtomIcon from '@s-ui/react-atom-icon'
-import styles from './cover.module.scss'
+import styles from './drawervertical.module.scss'
 import Button from '@s-ui/react-atom-button'
 import Link from 'next/link'
 
@@ -11,7 +11,7 @@ export default function Dropdown() {
   const [disabled, setDisabled] = useState(true)
   const ref = useOnclickOutside(
     () => {
-      setLayerState(styles.layerOff)
+      setLayerState(styles.layerdrawerVerticalOff)
       setCallToActionState(styles.CTAvisible)
       setDisabled(true)
     },
@@ -19,7 +19,7 @@ export default function Dropdown() {
   )
 
   const handleClickBtn = () => {
-    setLayerState(styles.layerOn)
+    setLayerState(styles.layerdrawerVerticalOn)
     setCallToActionState(styles.CTAinvisible)
     setDisabled(false)
   }
@@ -27,7 +27,7 @@ export default function Dropdown() {
   return (
     <div className="App_1 pop">
       {/* <div className="ignore-onclickoutside" /> */}
-      <div className="main-fullWidth">
+      <div className="main_960">
         <div className={styles.header}>
           <Link href="./">
             <img alt="logo" className={styles.logo} src="img/logo-ma.svg" />
@@ -35,17 +35,26 @@ export default function Dropdown() {
           <div className={CallToActionState}>
             <div>
               <Button
+                color="neutral"
+                design="flat"
+                className={'sui-AtomButton--empty' + ' ' + styles.buttonClose}
+              >
+                <img alt="icon burguer-menu" src="img/close.svg" />
+              </Button>
+              <Button
                 onClick={handleClickBtn}
                 color="neutral"
-                className="sui-AtomButton--empty"
-                // className={'sui-AtomButton--empty' + ' ' + buttonState}
+                className={'sui-AtomButton--empty' + ' ' + styles.buttonCTA}
               >
                 <img alt="icon burguer-menu" src="img/burger.svg" />
               </Button>
             </div>
           </div>
         </div>
-        <div ref={ref} className={layerState + ' ' + styles.layer}>
+        <div
+          ref={ref}
+          className={layerState + ' ' + styles.layerdrawerVertical}
+        >
           <nav
             aria-labelledby="navigation menu"
             className={styles.navigation_menu}

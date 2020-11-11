@@ -4,6 +4,10 @@
 @import '~@s-ui/react-atom-popover/lib/index.scss';
 @import '~@s-ui/react-atom-icon/lib/index.scss';
 
+$c-text-playground: rgba(255, 255, 255, 0.8);
+$c-yellow-playground: #f8bd11;
+$base-spacing: 8px;
+
 html {
   background: linear-gradient(145deg, #030013 0%, #020024 65%, #10015a 100%);
 }
@@ -17,7 +21,7 @@ body {
 .pop {
   @keyframes pop {
     from {
-      transform: scale(0.8);
+      transform: scale(0.9);
       opacity: 0;
     }
     to {
@@ -37,12 +41,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
 ul {
   @include reset-list;
 }
-$c-text-playground: rgba(255, 255, 255, 0.8);
-$c-yellow-playground: #f8bd11;
-$base-spacing: 8px;
+
 .home {
   &-navigation {
     max-width: 960px;
@@ -111,7 +114,6 @@ $base-spacing: 8px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   min-height: 100vh;
 }
 .main-fullWidth {

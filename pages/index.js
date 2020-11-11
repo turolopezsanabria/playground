@@ -26,8 +26,13 @@ export default function Home() {
               </Link>
             </li>
             <li>
+              <Link href="/navBar-DrawerVertical">
+                <a>Drawer Vertical</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/navBar-Drawer">
-                <a>Drawer</a>
+                <a>Drawer Lateral</a>
               </Link>
             </li>
           </ul>

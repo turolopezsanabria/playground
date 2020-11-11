@@ -1,15 +1,15 @@
 @import '~@s-ui/theme/lib/index.scss';
 @import '~@adv-ui/ma-theme/lib/index.scss';
 
-.layer{
+.layer_Drawer{
   background: $c-white;
     padding: $p-m;
     display: none;
     height: 100vh;
     position: absolute;
-    box-shadow: $bxsh-l;
+    box-shadow: -16px 0 16px -16px rgba(93, 115, 127, 0.3);
 }
-.layerOn {
+.layer_DrawerOn {
     @keyframes opendrawer {
       from {
         right: -224px;
@@ -23,7 +23,7 @@
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
-.layerOff{
+.layer_DrawerOff{
 
   @keyframes closedrawer {
     from {

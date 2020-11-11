@@ -1,41 +1,45 @@
 @import '~@s-ui/theme/lib/index.scss';
 @import '~@adv-ui/ma-theme/lib/index.scss';
 
-.layer{
+.layerdrawerVertical{
   background: $c-white;
     padding: $p-m;
     display: none;
-    height: 100vh;
     position: absolute;
-    box-shadow: $bxsh-l;
+    box-shadow: 0 16px 16px -16px rgba(93, 115, 127, 0.3);
+    width: 100%;
+    z-index: 10;
+    border-radius: 0  0 8px 8px;
+    border-top: solid 1px $c-gray-light-4;
 }
-.layerOn {
-    @keyframes coverOn {
+
+.layerdrawerVerticalOn {
+    @keyframes drawerVerticalOn {
       from {
-        right: -224px;
+        top: -100vh;
       }
       to {
-        right: 0;
+        top: 64px;
       }
     }
     display: block;
-    animation-name: coverOn;
+    animation-name: drawerVerticalOn;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
-.layerOff{
-  @keyframes coverOff {
+.layerdrawerVerticalOff{
+  @keyframes drawerVerticalOff {
     from {
-      right: 0;
+      top: 64px;
     }
     to {
-      right: -224px;
+      top: -100vh;
     }
   }
   display: block;
-  animation-name: closedrawer;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+  animation-name: drawerVerticalOff;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
 .header {
@@ -43,18 +47,35 @@
   display: flex;
   align-items: center;
   background-color: $c-white;
+  z-index: 20;
 }
 .logo {
   margin: $m-l;
 }
-.CTAvisible {
+.CTAvisible{
   position: absolute;
   right: $m-l;
   align-items: center;
   display: flex;
+  .buttonCTA{
+    display: block;
+  }
+  .buttonClose{
+    display: none;
+  }
 }
+
 .CTAinvisible {
-  display: none;
+  position: absolute;
+  right: $m-l;
+  align-items: center;
+  display: flex;
+  .buttonCTA{
+    display: none;
+  }
+  .buttonClose{
+    display: block;
+  }
 }
 
 .navigation_menu {
