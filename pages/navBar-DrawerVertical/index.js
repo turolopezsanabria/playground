@@ -87,7 +87,7 @@ export default function Dropdown() {
             </ul>
           </nav>
         </div>
-        <div className="MA_nosidemenu_Desktop"> </div>
+        {/* <div className="MA_nosidemenu_Desktop"> </div> */}
       </div>
     </div>
   )

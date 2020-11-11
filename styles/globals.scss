@@ -147,14 +147,14 @@ ul {
   }
 }
 
-.MA_nosidemenu_Desktop{
-  padding: $p-base * 2;
-  background: $c-white;
-  &::after{
-    display: block;
-    content: url(../public/img/MA_nosidemenu_Desktop.png)
-  }
-}
+// .MA_nosidemenu_Desktop{
+//   padding: $p-base * 2;
+//   background: $c-white;
+//   &::after{
+//     display: block;
+//     content: url(../public/img/MA_nosidemenu_Desktop.png)
+//   }
+// }
 
 @media (hover: hover) {
   .home-navigation {
