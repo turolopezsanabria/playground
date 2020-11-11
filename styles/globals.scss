@@ -141,10 +141,13 @@ ul {
 .MA_current_Desktop{
   padding: $p-base * 2;
   background: $c-white;
-  &::after{
-    display: block;
-    content: url(../public/img/MA_current_Desktop.png)
+  img{
+    width: 100%;
   }
+  // &::after{
+  //   display: block;
+  //   content: url(../public/img/MA_current_Desktop.png)
+  // }
 }
 
 // .MA_nosidemenu_Desktop{
