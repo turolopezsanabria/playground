@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>chevron_right</title>
+    <defs>
+        <path d="M10.0645521,7.47681102 C9.69509312,7.066301 9.72837153,6.43401116 10.1388816,6.06455214 C10.5493916,5.69509312 11.1816814,5.72837153 11.5511404,6.13888156 L16.0511399,11.1388734 C16.3934147,11.5191781 16.3934151,12.0964976 16.0511409,12.4768029 L11.5511404,17.476811 L11.5511404,17.476811 C11.1816814,17.887321 10.5493916,17.9205995 10.1388816,17.5511404 C9.72837153,17.1816814 9.69509312,16.5493916 10.0645521,16.1388816 L13.9624839,11.8078377 L10.0645521,7.47681102 Z" id="path-1"></path>
+    </defs>
+    <g id="chevron_right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Shape" fill="#AEB9BF" xlink:href="#path-1"></use>
+    </g>
+</svg>

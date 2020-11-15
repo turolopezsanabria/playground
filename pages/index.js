@@ -22,17 +22,17 @@ export default function Home() {
           <ul>
             <li>
               <Link href="/navBar-Popover">
-                <a>Popover</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/navBar-DrawerVertical">
-                <a>Drawer Vertical</a>
+                <a>ABC Popover</a>
               </Link>
             </li>
             <li>
               <Link href="/navBar-Drawer">
-                <a>Drawer Lateral</a>
+                <a>ABC Drawer Lateral</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/navBar-Mobile-First">
+                <a>Proposal Mobile 1st</a>
               </Link>
             </li>
           </ul>

@@ -11,12 +11,13 @@
     z-index: 10;
     border-radius: 0  0 8px 8px;
     border-top: solid 1px $c-gray-light-4;
+    min-width: 320px;
 }
 
 .layerdrawerVerticalOn {
     @keyframes drawerVerticalOn {
       from {
-        top: -100vh;
+        top: -500px;
       }
       to {
         top: 64px;
@@ -33,7 +34,7 @@
       top: 64px;
     }
     to {
-      top: -100vh;
+      top: -500px;
     }
   }
   display: block;
@@ -48,33 +49,67 @@
   align-items: center;
   background-color: $c-white;
   z-index: 20;
+  min-width: 320px;
+  position: relative;
+  overflow: hidden;
 }
 .logo {
   margin: $m-l;
 }
 .CTAvisible{
-  position: absolute;
-  right: $m-l;
+  // position: absolute;
+  // right: $m-l;
   align-items: center;
   display: flex;
+  justify-content: center;
   .buttonCTA{
     display: block;
+  }
+  .newActionButton{
+    display: flex;
   }
   .buttonClose{
     display: none;
   }
 }
-
 .CTAinvisible {
-  position: absolute;
-  right: $m-l;
-  align-items: center;
   display: flex;
+  // width: 40px;
+  justify-content: center;
   .buttonCTA{
+    display: none;
+  }
+  .newActionButton{
     display: none;
   }
   .buttonClose{
     display: block;
+  }
+}
+.actionsArea{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: $m-base*2;
+}
+
+.newActionButton{
+  display: flex;
+  align-items: center;
+  background: $c-accent;
+  border:none;
+  border-radius: 999px;
+  height: 40px;
+  font-size: 16px;
+  padding: 0 $p-base;
+  margin-right: $p-base;
+  font-family: 'Rubik', sans-serif;
+  color: $c-gray-dark-4;
+  span{
+    padding: $p-base/2;
+  }
+  &:focus{
+    outline:none;
   }
 }
 
@@ -85,6 +120,7 @@
   }
   //
   ul {
+    font-family: 'Rubik', sans-serif;
     color: $c-gray-dark-3;
     font-size: $fz-m;
     text-align: left;
@@ -96,11 +132,16 @@
       padding: $p-m;
       margin: $p-m;
       border-radius: $bdrs-base/2;
+      position: relative;
       .label {
         margin-left: $m-m;
       }
       &.publica {
         background: $c-accent;
+      }
+      .nav_arrow{
+        position: absolute;
+        right: 0;
       }
     }
   }
@@ -142,9 +183,22 @@
     animation-fill-mode: forwards;
   }
 }
+HR.menu_divisor{
+  border: none;
+  display: block;
+  height: 1px;
+  background: $c-gray-light-4;
+  width: calc(100% - 32px);
+}
 
 @media (hover: hover) {
   .logo:hover {
+    cursor: pointer;
+  }
+  .newActionButton:hover{
+    cursor: pointer
+  }
+  .CTAvisible:hover{
     cursor: pointer;
   }
   .navigation_menu ul li {
@@ -153,6 +207,69 @@
     }
     &.publica:hover {
       background: $c-accent-light-4;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .layerdrawerVertical{
+    max-width: 250px;
+    min-width: 250px;
+    right: 0;
+  }
+  
+  .CTAvisible{
+    @keyframes CTAvisible {
+      from {
+        right: 8px;
+      }
+      to {
+        right: -24px;
+      }
+    }
+    animation-name: CTAvisible;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+    .buttonCTA{
+      display: block;
+    }
+    .newActionButton{
+      display: flex;
+    }
+    .buttonClose{
+      display: block;
+      transform: scaleY(1);
+      opacity: 0;
+    }
+  }
+  .CTAinvisible {
+    @keyframes CTAinvisible {
+      from {
+        right: -24px;
+      }
+      to {
+        right: 8px;
+      }
+    }
+    animation-name: CTAinvisible;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    display: flex;
+    justify-content: center;
+    .buttonCTA{
+      display: block;
+    }
+    .newActionButton{
+      display: flex;
+    }
+    .buttonClose img{
+      display: block;
+      transform: scaleY(-1);
+      opacity: 1;
     }
   }
 }

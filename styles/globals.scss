@@ -3,9 +3,11 @@
 @import '~@s-ui/react-atom-button/lib/index.scss';
 @import '~@s-ui/react-atom-popover/lib/index.scss';
 @import '~@s-ui/react-atom-icon/lib/index.scss';
+@import '~@s-ui/react-molecule-avatar/lib/index';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
 $c-text-playground: rgba(255, 255, 255, 0.8);
-$c-pill-playground: #6136FF;
+$c-pill-playground: #bb0083;
 $base-spacing: 8px;
 
 html {
@@ -118,7 +120,6 @@ ul {
   padding: 0;
   margin: 0;
   background: $c-gray-light-4;
-  font-family: $ff-rubik;
 }
 
 .main_992 {
@@ -176,3 +177,14 @@ ul {
   padding: 0;
   border: 0;
 }
+
+.sui-MoleculeAvatar--small{
+  width: 24px;
+    min-width: 24px;
+    height: 24px;
+};
+.sui-MoleculeAvatar--medium{
+  width: 40px;
+    min-width: 40px;
+    height: 40px;
+};

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <defs>
+        <path d="M7.25104343,5.926124 C6.6968549,5.31035897 6.74677252,4.36192421 7.36253755,3.80773568 C7.97830258,3.25354715 8.92673734,3.30346477 9.48092587,3.9192298 L16.2309259,11.4192298 C16.7443376,11.9896873 16.7443376,12.8556665 16.2309259,13.426124 L9.48092587,20.926124 L9.48092587,20.926124 C8.92673734,21.541889 7.97830258,21.5918067 7.36253755,21.0376181 C6.74677252,20.4834296 6.6968549,19.5349948 7.25104343,18.9192298 L13.097941,12.4226769 L7.25104343,5.926124 Z" id="path-1"></path>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Shape" fill="#AEB9BF" transform="translate(12.000000, 12.422677) rotate(90.000000) translate(-12.000000, -12.422677) " xlink:href="#path-1"></use>
+    </g>
+</svg>
