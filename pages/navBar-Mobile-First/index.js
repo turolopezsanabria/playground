@@ -10,23 +10,31 @@ export default function Dropdown() {
   const [CallToActionState, setCallToActionState] = useState(styles.CTAvisible)
   const [layerState, setLayerState] = useState()
   const [disabled, setDisabled] = useState(true)
-  const CloseIt = () => {
+  const [CallToActionToggle, setCallToActionToggle] = useState(false)
+
+  const CloseIttrue = () => {
     setLayerState(styles.layerdrawerVerticalOff)
     setCallToActionState(styles.CTAvisible)
-    setDisabled(true)
+    setDisabled(!disabled)
+    setCallToActionToggle(prevValue => !prevValue)
+    console.log('CloseIt' + disabled)
   }
 
-  const OpenIt = () => {
+  const CloseItfalse = () => {
     setLayerState(styles.layerdrawerVerticalOn)
     setCallToActionState(styles.CTAinvisible)
-    setDisabled(false)
+    setDisabled(!disabled)
+    setCallToActionToggle(true)
+    console.log('OpenIt' + disabled)
   }
 
   const ref = useOnclickOutside(
     () => {
       setLayerState(styles.layerdrawerVerticalOff)
       setCallToActionState(styles.CTAvisible)
-      setDisabled(true)
+      setDisabled(!disabled)
+      setCallToActionToggle(prevValue => !prevValue)
+      console.log('ref' + disabled)
     },
     {disabled}
   )
@@ -44,17 +52,17 @@ export default function Dropdown() {
               <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
               <span>Publicar</span>
             </button>
-
             <div className={styles.buttonCTA}>
               <MoleculeAvatar
                 size={AVATAR_SIZES.MEDIUM}
-                onClick={OpenIt}
+                onClick={eval('CloseIt' + CallToActionToggle)}
+                // onClick={CloseItfalse}
                 name="John Maplethorp"
                 src="img/user-2.png"
               />
             </div>
             <Button
-              onClick={CloseIt}
+              onClick={CloseIttrue}
               color="neutral"
               design="flat"
               className={'sui-AtomButton--empty' + ' ' + styles.buttonClose}
