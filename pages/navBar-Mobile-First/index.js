@@ -59,7 +59,7 @@ export default function Dropdown() {
               design="flat"
               className={'sui-AtomButton--empty' + ' ' + styles.buttonClose}
             >
-              <img alt="icon burguer-menu" src="img/chevron_down.svg" />
+              <img alt="icon burguer-menu" src="img/chevron_up.svg" />
             </Button>
           </div>
         </div>

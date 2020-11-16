@@ -242,7 +242,7 @@ HR.menu_divisor{
     }
     .buttonClose{
       display: block;
-      transform: scaleY(1);
+      transform: scaleY(-1);
       opacity: 0;
     }
   }
@@ -268,7 +268,7 @@ HR.menu_divisor{
     }
     .buttonClose img{
       display: block;
-      transform: scaleY(-1);
+      transform: scaleY(1);
       opacity: 1;
     }
   }
