@@ -17,6 +17,28 @@ export default function Dropdown() {
     return CTAToggle ? Closed() : Opended()
   }
 
+  const doLogOut = () => {
+    setTimeout(() => {
+      setLoggedStatus(false)
+      setLayerState(styles.layerdrawerVerticalOff)
+      setCallToActionState(styles.CTAinvisible)
+      setDisabled(true)
+      setCTAToggle(false)
+      console.log('doLogOut')
+    }, 500)
+  }
+
+  const doLogIn = () => {
+    setTimeout(() => {
+      setLoggedStatus(true)
+      setLayerState(styles.layerdrawerVerticalOff)
+      setCallToActionState(styles.CTAinvisible)
+      setDisabled(true)
+      setCTAToggle(false)
+      console.log(Closed)
+    }, 500)
+  }
+
   const Closed = () => {
     setLayerState(styles.layerdrawerVerticalOff)
     setCallToActionState(styles.CTAvisible)
@@ -100,13 +122,7 @@ export default function Dropdown() {
           className={styles.navigation_menu}
         >
           <ul>
-            <li
-              onClick={() => {
-                setTimeout(() => {
-                  setLoggedStatus(false)
-                }, 500)
-              }}
-            >
+            <li onClick={doLogOut}>
               <MoleculeAvatar
                 size={AVATAR_SIZES.SMALL}
                 name="John Maplethorp"
@@ -191,11 +207,7 @@ export default function Dropdown() {
               fullWidth
               className={'sui-AtomButton--empty' + ' ' + styles.seachbtn}
               isButton
-              onClick={() => {
-                setTimeout(() => {
-                  setLoggedStatus(true)
-                }, 500)
-              }}
+              onClick={doLogIn}
             >
               Log-in
             </Button>
