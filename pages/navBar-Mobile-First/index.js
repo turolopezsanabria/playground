@@ -82,3 +82,9 @@ export default function Dropdown() {
     </div>
   )
 }
+
+//   const handleKeyDown = event => {
+//     if (event.key === 'Enter') {
+//       console.log(Closed)
+//     }
+//   }

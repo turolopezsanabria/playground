@@ -8,7 +8,8 @@ const withTM = require('next-transpile-modules')([
   '@s-ui/react-hooks',
   'react-cool-onclickoutside',
   '@s-ui/react-atom-image',
-  '@s-ui/react-atom-skeleton'
+  '@s-ui/react-atom-skeleton',
+  '@s-ui/react-atom-input'
 ])
 
 module.exports = withTM({

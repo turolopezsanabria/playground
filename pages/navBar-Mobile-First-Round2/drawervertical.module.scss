@@ -1,0 +1,347 @@
+@import '~@s-ui/theme/lib/index.scss';
+@import '~@adv-ui/ma-theme/lib/index.scss';
+
+.layerdrawerVertical{
+  background: $c-white;
+    padding: $p-m;
+    display: none;
+    position: absolute;
+    box-shadow: 0 16px 16px -16px rgba(93, 115, 127, 0.3);
+    width: 100%;
+    z-index: 10;
+    border-radius: 0  0 8px 8px;
+    border-top: solid 1px $c-gray-light-4;
+    min-width: 320px;
+}
+
+.layerdrawerVerticalOn {
+    @keyframes drawerVerticalOn {
+      from {
+        top: -500px;
+      }
+      to {
+        top: 64px;
+      }
+    }
+    display: block;
+    animation-name: drawerVerticalOn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.layerdrawerVerticalOff{
+  @keyframes drawerVerticalOff {
+    from {
+      top: 64px;
+    }
+    to {
+      top: -500px;
+    }
+  }
+  display: block;
+  animation-name: drawerVerticalOff;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background-color: $c-white;
+  z-index: 20;
+  min-width: 320px;
+  position: relative;
+  overflow: hidden;
+}
+.logoDesktop {
+  margin: $m-l;
+  display: none;
+}
+.logoMobile {
+  margin: $m-l;
+  display: block;
+}
+
+.newActionButton{
+  display: flex;
+  align-items: center;
+  background: $c-accent;
+  border:none;
+  border-radius: 999px;
+  height: 40px;
+  font-size: 16px;
+  padding: 0 $p-base;
+  margin: 0 $p-base*2;
+  font-family: 'Rubik', sans-serif;
+  color: $c-gray-dark-4;
+  span{
+    padding: $p-base/2;
+  }
+  &:active{
+    transform: scale(0.95);
+  }
+  &:focus{
+    outline:none;
+  }
+}
+
+.CTAvisible{
+  // position: absolute;
+  // right: $m-l;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  .buttonCTA{
+    display: flex;
+    span:active{
+      transform: scale(0.95);
+    }
+  }
+  .buttonClose{
+    // display: block;
+    @keyframes RotateCloseBack {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(180deg);
+      }
+    }
+    animation-name: RotateCloseBack;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+    transform: scaleY(-1);
+    margin-left: 4px;
+    // opacity: 1;
+  }
+  .newActionButton{
+    display: flex;
+  }
+  // .buttonClose{
+  //   display: none;
+  // }
+  .seachbtn{
+    display: block;
+  }
+}
+.CTAinvisible {
+  display: flex;
+  // width: 40px;
+  justify-content: center;
+  .buttonCTA{
+    display: flex;
+  align-items: center;
+  }
+  .newActionButton{
+    display: none;
+  }
+  // .buttonClose{
+  //   display: block;
+  // }
+  .buttonClose{
+    // display: block;
+    @keyframes RotateClose {
+      from {
+        transform: rotate(180deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+    animation-name: RotateClose;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  // transform: rotate(180deg);
+    // transform: scaleY(1);
+    margin-left: 4px;
+    // opacity: 1;
+  }
+  .seachbtn{
+    display: none;
+  }
+}
+.actionsArea{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: $m-base*2;
+}
+
+
+
+.navigation_menu {
+  // this one between comments is just for prototyping, should be changed in Milanuncios Theme
+  .sui-AtomButton + .sui-AtomButton {
+    margin-left: 0px;
+  }
+  form{
+    padding: $m-base*2;
+
+    input{
+      margin-bottom: $m-base;
+    }
+  }
+  //
+  ul {
+    font-family: 'Rubik', sans-serif;
+    color: $c-gray-dark-3;
+    font-size: $fz-m;
+    text-align: left;
+    li {
+      cursor: default;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: $p-m;
+      margin: $p-m;
+      border-radius: $bdrs-base/2;
+      position: relative;
+      .label {
+        margin-left: $m-m;
+      }
+      &.publica {
+        background: $c-accent;
+      }
+      .nav_arrow{
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+
+.drawer {
+  @keyframes opendrawer {
+    from {
+      right: -224px;
+    }
+    to {
+      right: 0;
+    }
+  }
+  @keyframes closedrawer {
+    from {
+      right: 0;
+    }
+    to {
+      right: -224px;
+    }
+  }
+  width: 224px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: $c-white;
+  height: 100vh;
+  top: 64px;
+  right: -224px;
+  .true {
+    animation-name: opendrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  .false {
+    animation-name: closedrawer;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+HR.menu_divisor{
+  border: none;
+  display: block;
+  height: 1px;
+  background: $c-gray-light-4;
+  width: calc(100% - 32px);
+}
+
+@media (hover: hover) {
+  .logo:hover {
+    cursor: pointer;
+  }
+  .newActionButton:hover{
+    cursor: pointer
+  }
+  .CTAvisible:hover{
+    cursor: pointer;
+  }
+  .navigation_menu ul li {
+    &:hover {
+      background-color: $c-gray-light-4;
+    }
+    &.publica:hover {
+      background: $c-accent-light-4;
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .layerdrawerVertical{
+    max-width: 320px;
+    min-width: 320px;
+    right: 0;
+  }
+  .logoDesktop {
+    margin: $m-l;
+    display: block;
+  }
+  .logoMobile {
+    margin: $m-l;
+    display: none;
+  }
+  
+  .CTAvisible{
+    // @keyframes CTAvisible {
+    //   from {
+    //     right: 8px;
+    //   }
+    //   to {
+    //     right: -24px;
+    //   }
+    // }
+    // animation-name: CTAvisible;
+    // animation-duration: 0.2s;
+    // animation-fill-mode: forwards;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+    .buttonCTA{
+      display: flex;
+      align-items: center;
+    }
+    .newActionButton{
+      display: flex;
+    }
+    
+  }
+  .CTAinvisible {
+    // @keyframes CTAinvisible {
+    //   from {
+    //     right: -24px;
+    //   }
+    //   to {
+    //     right: 8px;
+    //   }
+    // }
+    // animation-name: CTAinvisible;
+    // animation-duration: 0.2s;
+    // animation-fill-mode: forwards;
+    display: flex;
+    justify-content: center;
+    .buttonCTA{
+      display: flex;
+    align-items: center;
+    }
+    .newActionButton{
+      display: flex;
+    }
+    // .buttonClose img{
+    //   // display: block;
+    //   transform: scaleY(1);
+    //   // opacity: 1;
+    // }
+    .seachbtn{
+      display: block;
+    }
+  }
+}
