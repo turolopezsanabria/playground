@@ -85,7 +85,7 @@
   }
 }
 
-.CTAvisible{
+.arrowPointingDown{
   // position: absolute;
   // right: $m-l;
   align-items: center;
@@ -98,18 +98,18 @@
   }
   .buttonClose{
     // display: block;
-    @keyframes RotateCloseBack {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(180deg);
-      }
-    }
-    animation-name: RotateCloseBack;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-    transform: scaleY(-1);
+  //   @keyframes RotateCloseBack {
+  //     from {
+  //       transform: rotate(0deg);
+  //     }
+  //     to {
+  //       transform: rotate(180deg);
+  //     }
+  //   }
+  //   animation-name: RotateCloseBack;
+  // animation-duration: 0.5s;
+  // animation-fill-mode: both;
+  transform: rotate(180deg);
     margin-left: 4px;
     // opacity: 1;
   }
@@ -144,17 +144,17 @@
   // }
   .buttonClose{
 
-    @keyframes RotateClose {
-      from {
-        transform: rotate(180deg);
-      }
-      to {
-        transform: rotate(0deg);
-      }
-    }
-    animation-name: RotateClose;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
+  //   @keyframes RotateClose {
+  //     from {
+  //       transform: rotate(180deg);
+  //     }
+  //     to {
+  //       transform: rotate(0deg);
+  //     }
+  //   }
+  //   animation-name: RotateClose;
+  // animation-duration: 0.5s;
+  // animation-fill-mode: forwards;
 
     margin-left: 4px;
   }
@@ -277,7 +277,7 @@ HR.menu_divisor{
   .newActionButton:hover{
     cursor: pointer
   }
-  .CTAvisible:hover{
+  .arrowPointingDown:hover{
     cursor: pointer;
   }
   .navigation_menu ul li {
@@ -305,25 +305,8 @@ HR.menu_divisor{
     display: none;
   }
   
-  .CTAvisible{
-    // @keyframes CTAvisible {
-    //   from {
-    //     right: 8px;
-    //   }
-    //   to {
-    //     right: -24px;
-    //   }
-    // }
-    // animation-name: CTAvisible;
-    // animation-duration: 0.2s;
-    // animation-fill-mode: forwards;
-    .buttonCTA{
-      display: flex;
-      span:active{
-        transform: scale(0.95);
-      }
-     
-    }
+  .arrowPointingDown{
+    
     align-items: center;
     display: flex;
     justify-content: center;
@@ -338,17 +321,7 @@ HR.menu_divisor{
     
   }
   .CTAinvisible {
-    // @keyframes CTAinvisible {
-    //   from {
-    //     right: -24px;
-    //   }
-    //   to {
-    //     right: 8px;
-    //   }
-    // }
-    // animation-name: CTAinvisible;
-    // animation-duration: 0.2s;
-    // animation-fill-mode: forwards;
+  
     display: flex;
     justify-content: center;
     .buttonCTA{

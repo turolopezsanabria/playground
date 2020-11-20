@@ -7,77 +7,93 @@ import MoleculeAvatar, {AVATAR_SIZES} from '@s-ui/react-molecule-avatar'
 import Link from 'next/link'
 
 export default function Dropdown() {
-  const [CallToActionState, setCallToActionState] = useState(styles.CTAvisible)
+  const [CallToActionState, setCallToActionState] = useState(
+    styles.arrowPointingDown
+  )
   const [layerState, setLayerState] = useState()
   const [disabled, setDisabled] = useState(true)
-  const [CTAToggle, setCTAToggle] = useState()
+  const [CTAToggleActive, setCTAToggleActive] = useState()
   const [LoggedStatus, setLoggedStatus] = useState(true)
-  const [myAccountVisible, setmyAccountVisible] = useState(false)
-  const [myCreditsVisible, setmyCreditsVisible] = useState(false)
+  const [subMenuVisible, setsubMenuVisible] = useState(false)
+  const [whichSubmenu, setwhichSubmenu] = useState()
+  const [UserIsAttemptinglog, setUserIsAttemptinglog] = useState(false)
 
-  function ClickCTAToggle() {
-    return CTAToggle ? Closed() : Opended()
+  function ClickCTAToggleActive() {
+    return CTAToggleActive ? Closed() : Opended()
   }
 
-  const backFromMyAccount = () => {
-    setmyAccountVisible(false)
+  const TheLoginButton = () => {
+    return UserIsAttemptinglog ? success() : emptyState()
+  }
+
+  const backFromSubMenu = () => {
+    setsubMenuVisible(false)
   }
   const goToMyAccount = () => {
-    setmyAccountVisible(true)
+    setsubMenuVisible(true)
+    setwhichSubmenu(1)
   }
-  const backFromMyCredits = () => {}
-  const goMyCredits = () => {}
+  const goToMyCredits = () => {
+    setsubMenuVisible(true)
+    setwhichSubmenu(0)
+  }
 
-  function NavigationMenuLoggedIn() {
-    return myAccountVisible ? myAccount() : Initial()
+  const subMenu = () => {
+    return whichSubmenu ? myAccount() : myCredits()
+  }
+  const NavigationMenuLoggedIn = () => {
+    // return subMenuVisible & !myCreditsVisible ? myAccount() : Initial()
+    return subMenuVisible ? subMenu() : Initial()
   }
 
   const doLogOut = () => {
+    setLayerState(styles.layerdrawerVerticalOff)
     setTimeout(() => {
       setLoggedStatus(false)
-      setLayerState(styles.layerdrawerVerticalOff)
-      setCallToActionState(styles.CTAinvisible)
-      setDisabled(false)
-      ClickCTAToggle()
-      setCTAToggle(false)
-      setmyAccountVisible(false)
-      // console.log('doLogOut')
-    }, 500)
+      setCallToActionState(styles.arrowPointingDown)
+      setDisabled(true)
+
+      setCTAToggleActive(false)
+      setsubMenuVisible(false)
+      setUserIsAttemptinglog(false)
+    }, 300)
   }
 
   const doLogIn = () => {
+    setUserIsAttemptinglog(true)
+    setTimeout(() => {
+      setLayerState(styles.layerdrawerVerticalOff)
+      setCallToActionState(styles.arrowPointingDown)
+      setDisabled(false)
+      setCTAToggleActive(false)
+    }, 500)
     setTimeout(() => {
       setLoggedStatus(true)
-      setLayerState(styles.layerdrawerVerticalOff)
-      setCallToActionState(styles.CTAinvisible)
-      setDisabled(false)
-      ClickCTAToggle()
-      // console.log(Closed)
-    }, 500)
+    }, 800)
   }
 
   const Closed = () => {
     setLayerState(styles.layerdrawerVerticalOff)
-    setCallToActionState(styles.CTAvisible)
+    setCallToActionState(styles.arrowPointingDown)
     setDisabled(!disabled)
-    setCTAToggle(prevValue => !prevValue)
-    setmyAccountVisible(false)
+    setCTAToggleActive(prevValue => !prevValue)
+    setsubMenuVisible(false)
   }
 
   const Opended = () => {
     setLayerState(styles.layerdrawerVerticalOn)
     setCallToActionState(styles.CTAinvisible)
     setDisabled(!disabled)
-    setCTAToggle(true)
+    setCTAToggleActive(true)
   }
 
   const ref = useOnclickOutside(
     () => {
       setLayerState(styles.layerdrawerVerticalOff)
-      setCallToActionState(styles.CTAvisible)
+      setCallToActionState(styles.arrowPointingDown)
       setDisabled(!disabled)
-      setCTAToggle(prevValue => !prevValue)
-      console.log('ref' + disabled)
+      setCTAToggleActive(prevValue => !prevValue)
+      setsubMenuVisible(false)
     },
     {disabled}
   )
@@ -114,7 +130,11 @@ export default function Dropdown() {
           <span>Publicar</span>
         </button>
 
-        <div tabIndex={0} className={styles.buttonCTA} onClick={ClickCTAToggle}>
+        <div
+          tabIndex={0}
+          className={styles.buttonCTA}
+          onClick={ClickCTAToggleActive}
+        >
           <MoleculeAvatar
             size={AVATAR_SIZES.MEDIUM}
             name="John Maplethorp"
@@ -133,6 +153,46 @@ export default function Dropdown() {
     )
   }
 
+  const myCredits = () => {
+    return (
+      <>
+        <nav
+          aria-labelledby="navigation menu"
+          className={styles.navigation_menu}
+        >
+          <ul>
+            <li onClick={backFromSubMenu}>
+              <img alt="navigation arrow" src="img/chevron_left.svg" />
+              <span className={styles.label}>Volver al menú</span>
+            </li>
+            <hr className={styles.menu_divisor} />
+            <li>
+              <img alt="icon burguer-menu" src="img/credits.svg" />
+              <span className={styles.label}>Recargar créditos</span>
+            </li>
+            <li>
+              <img alt="icon burguer-menu" src="img/mis_recargas.svg" />
+              <span className={styles.label}>Mis recargas de créditos</span>
+            </li>
+            <li>
+              <img alt="icon burguer-menu" src="img/last_movements.svg" />
+              <span className={styles.label}>Últimos movimientos</span>
+            </li>
+            <hr className={styles.menu_divisor} />
+            <li>
+              <img alt="icon burguer-menu" src="img/destacar.svg" />
+              <span className={styles.label}>Destacatar anuncios</span>
+            </li>
+            <li>
+              <img alt="icon burguer-menu" src="img/subasta.svg" />
+              <span className={styles.label}>Poner mi anuncio primero</span>
+            </li>
+          </ul>
+        </nav>
+      </>
+    )
+  }
+
   const myAccount = () => {
     return (
       <>
@@ -141,12 +201,12 @@ export default function Dropdown() {
           className={styles.navigation_menu}
         >
           <ul>
-            <li onClick={backFromMyAccount}>
+            <li onClick={backFromSubMenu}>
               <img alt="navigation arrow" src="img/chevron_left.svg" />
               <span className={styles.label}>Volver al menú</span>
             </li>
             <hr className={styles.menu_divisor} />
-            <li onClick={goToMyAccount}>
+            <li>
               <MoleculeAvatar
                 size={AVATAR_SIZES.SMALL}
                 name="John Maplethorp"
@@ -210,8 +270,8 @@ export default function Dropdown() {
               <img alt="icon burguer-menu" src="img/bell.svg" />
               <span className={styles.label}>Mis búsquedas</span>
             </li>
-            <li>
-              <img alt="icon burguer-menu" src="img/credit.svg" />
+            <li onClick={goToMyCredits}>
+              <img alt="icon burguer-menu" src="img/credits.svg" />
               <span className={styles.label}>Mis creditos</span>
               <img
                 className={styles.nav_arrow}
@@ -239,17 +299,13 @@ export default function Dropdown() {
   }
 
   function NavigationMenuLoggedOut() {
-    return emptyState()
-  }
-
-  const emptyState = () => {
     return (
       <>
         <nav
           aria-labelledby="navigation menu"
           className={styles.navigation_menu}
         >
-          <form>
+          <form onSubmit={() => window.alert('Submit!')}>
             <h1>Inicia sesión</h1>
             <AtomInput
               tabIndex={0}
@@ -261,20 +317,10 @@ export default function Dropdown() {
               tabIndex={0}
               type="password"
               name="email"
-              placeholder="Password"
+              placeholder="Contraseña"
             />
 
-            <Button
-              tabIndex={0}
-              color="primary"
-              design="solid"
-              fullWidth
-              className={'sui-AtomButton--empty' + ' ' + styles.seachbtn}
-              isButton
-              onClick={doLogIn}
-            >
-              Log-in
-            </Button>
+            <TheLoginButton />
           </form>
           <div className={styles.dont_have_account}>
             ¿Aún no tienes una cuenta? <a href="#"> Regístrate</a>
@@ -295,6 +341,36 @@ export default function Dropdown() {
       </>
     )
   }
+
+  const emptyState = () => {
+    return (
+      <Button
+        tabIndex={0}
+        color="primary"
+        design="solid"
+        fullWidth
+        isSubmit
+        className={'sui-AtomButton--empty' + ' ' + styles.seachbtn}
+        onClick={doLogIn}
+      >
+        Inicia sesión
+      </Button>
+    )
+  }
+  const success = () => {
+    return (
+      <Button
+        tabIndex={0}
+        color="primary"
+        design="solid"
+        fullWidth
+        className={'sui-AtomButton--empty' + ' ' + styles.seachbtn}
+        isLoading
+      >
+        Log-in
+      </Button>
+    )
+  }
   const loggedOut = () => {
     return (
       <div className={styles.actionsArea + ' ' + CallToActionState}>
@@ -310,7 +386,7 @@ export default function Dropdown() {
           <span>Publicar</span>
         </button>
 
-        <div className={styles.buttonCTA} onClick={ClickCTAToggle}>
+        <div className={styles.buttonCTA} onClick={ClickCTAToggleActive}>
           <MoleculeAvatar size={AVATAR_SIZES.MEDIUM} />
           <img
             className={styles.buttonClose}
