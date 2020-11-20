@@ -11,7 +11,7 @@
     z-index: 10;
     border-radius: 0  0 8px 8px;
     border-top: solid 1px $c-gray-light-4;
-    min-width: 320px;
+    min-width: 312px;
 }
 
 .layerdrawerVerticalOn {
@@ -276,8 +276,8 @@ HR.menu_divisor{
 
 @media (min-width: 720px) {
   .layerdrawerVertical{
-    max-width: 320px;
-    min-width: 320px;
+    max-width: 312px;
+    min-width: 312px;
     right: 0;
   }
   .logoDesktop {
