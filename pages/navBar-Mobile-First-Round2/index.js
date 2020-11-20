@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import useOnclickOutside from 'react-cool-onclickoutside'
 import styles from './drawervertical.module.scss'
 import Button from '@s-ui/react-atom-button'
@@ -11,10 +11,25 @@ export default function Dropdown() {
   const [layerState, setLayerState] = useState()
   const [disabled, setDisabled] = useState(true)
   const [CTAToggle, setCTAToggle] = useState()
-  const [LoggedStatus, setLoggedStatus] = useState(false)
+  const [LoggedStatus, setLoggedStatus] = useState(true)
+  const [myAccountVisible, setmyAccountVisible] = useState(false)
+  const [myCreditsVisible, setmyCreditsVisible] = useState(false)
 
   function ClickCTAToggle() {
     return CTAToggle ? Closed() : Opended()
+  }
+
+  const backFromMyAccount = () => {
+    setmyAccountVisible(false)
+  }
+  const goToMyAccount = () => {
+    setmyAccountVisible(true)
+  }
+  const backFromMyCredits = () => {}
+  const goMyCredits = () => {}
+
+  function NavigationMenuLoggedIn() {
+    return myAccountVisible ? myAccount() : Initial()
   }
 
   const doLogOut = () => {
@@ -22,9 +37,11 @@ export default function Dropdown() {
       setLoggedStatus(false)
       setLayerState(styles.layerdrawerVerticalOff)
       setCallToActionState(styles.CTAinvisible)
-      setDisabled(true)
+      setDisabled(false)
+      ClickCTAToggle()
       setCTAToggle(false)
-      console.log('doLogOut')
+      setmyAccountVisible(false)
+      // console.log('doLogOut')
     }, 500)
   }
 
@@ -33,9 +50,9 @@ export default function Dropdown() {
       setLoggedStatus(true)
       setLayerState(styles.layerdrawerVerticalOff)
       setCallToActionState(styles.CTAinvisible)
-      setDisabled(true)
-      setCTAToggle(false)
-      console.log(Closed)
+      setDisabled(false)
+      ClickCTAToggle()
+      // console.log(Closed)
     }, 500)
   }
 
@@ -44,6 +61,7 @@ export default function Dropdown() {
     setCallToActionState(styles.CTAvisible)
     setDisabled(!disabled)
     setCTAToggle(prevValue => !prevValue)
+    setmyAccountVisible(false)
   }
 
   const Opended = () => {
@@ -114,7 +132,8 @@ export default function Dropdown() {
       </div>
     )
   }
-  const NavigationMenuLoggedIn = () => {
+
+  const myAccount = () => {
     return (
       <>
         <nav
@@ -122,7 +141,47 @@ export default function Dropdown() {
           className={styles.navigation_menu}
         >
           <ul>
+            <li onClick={backFromMyAccount}>
+              <img alt="navigation arrow" src="img/chevron_left.svg" />
+              <span className={styles.label}>Volver al menú</span>
+            </li>
+            <hr className={styles.menu_divisor} />
+            <li onClick={goToMyAccount}>
+              <MoleculeAvatar
+                size={AVATAR_SIZES.SMALL}
+                name="John Maplethorp"
+                src="img/user-2.png"
+              />
+              <span className={styles.label}>Datos de mi cuenta</span>
+            </li>
+            <li>
+              <img alt="icon burguer-menu" src="img/privacy.svg" />
+              <span className={styles.label}>Gestionar privacidad</span>
+            </li>
+            <li>
+              <img alt="icon burguer-menu" src="img/datos.svg" />
+              <span className={styles.label}>Descargar mis datos</span>
+            </li>
+            <hr className={styles.menu_divisor} />
             <li onClick={doLogOut}>
+              <img alt="icon burguer-menu" src="img/exit.svg" />
+              <span className={styles.label}>Cerrar sesión</span>
+            </li>
+          </ul>
+        </nav>
+      </>
+    )
+  }
+  const Initial = () => {
+    return (
+      <>
+        <nav
+          aria-labelledby="navigation menu"
+          className={styles.navigation_menu}
+        >
+          <ul>
+            {/* <li onClick={doLogOut}> */}
+            <li onClick={goToMyAccount}>
               <MoleculeAvatar
                 size={AVATAR_SIZES.SMALL}
                 name="John Maplethorp"
@@ -179,7 +238,11 @@ export default function Dropdown() {
     )
   }
 
-  const NavigationMenuLoggedOut = () => {
+  function NavigationMenuLoggedOut() {
+    return emptyState()
+  }
+
+  const emptyState = () => {
     return (
       <>
         <nav
@@ -187,6 +250,7 @@ export default function Dropdown() {
           className={styles.navigation_menu}
         >
           <form>
+            <h1>Inicia sesión</h1>
             <AtomInput
               tabIndex={0}
               type="text"
@@ -212,16 +276,10 @@ export default function Dropdown() {
               Log-in
             </Button>
           </form>
+          <div className={styles.dont_have_account}>
+            ¿Aún no tienes una cuenta? <a href="#"> Regístrate</a>
+          </div>
           <ul>
-            {/* <li
-              onClick={() => {
-                setLoggedStatus(true)
-              }}
-            >
-              <MoleculeAvatar size={AVATAR_SIZES.SMALL} />
-              <span className={styles.label}>Inicia Sesión</span>
-            </li> */}
-
             <hr className={styles.menu_divisor} />
 
             <li>

@@ -93,9 +93,8 @@
   justify-content: center;
   .buttonCTA{
     display: flex;
-    span:active{
-      transform: scale(0.95);
-    }
+   
+   
   }
   .buttonClose{
     // display: block;
@@ -124,6 +123,11 @@
     display: block;
   }
 }
+.buttonCTA{
+&:focus{
+  outline: none;
+}
+}
 .CTAinvisible {
   display: flex;
   // width: 40px;
@@ -139,7 +143,7 @@
   //   display: block;
   // }
   .buttonClose{
-    // display: block;
+
     @keyframes RotateClose {
       from {
         transform: rotate(180deg);
@@ -151,10 +155,8 @@
     animation-name: RotateClose;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
-  // transform: rotate(180deg);
-    // transform: scaleY(1);
+
     margin-left: 4px;
-    // opacity: 1;
   }
   .seachbtn{
     display: none;
@@ -174,7 +176,21 @@
   .sui-AtomButton + .sui-AtomButton {
     margin-left: 0px;
   }
+  .dont_have_account{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: $m-base*2;
+    a{
+      @include link
+    }
+  }
   form{
+    
+    h1{
+      font-family: 'Rubik', sans-serif;
+      font-weight: 5600;
+      font-size: 18px;
+    }
     padding: $m-base*2;
 
     input{
@@ -301,6 +317,13 @@ HR.menu_divisor{
     // animation-name: CTAvisible;
     // animation-duration: 0.2s;
     // animation-fill-mode: forwards;
+    .buttonCTA{
+      display: flex;
+      span:active{
+        transform: scale(0.95);
+      }
+     
+    }
     align-items: center;
     display: flex;
     justify-content: center;
@@ -335,11 +358,7 @@ HR.menu_divisor{
     .newActionButton{
       display: flex;
     }
-    // .buttonClose img{
-    //   // display: block;
-    //   transform: scaleY(1);
-    //   // opacity: 1;
-    // }
+
     .seachbtn{
       display: block;
     }
