@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useMemo} from 'react'
 import useOnclickOutside from 'react-cool-onclickoutside'
 import styles from './drawervertical.module.scss'
 import Button from '@s-ui/react-atom-button'
@@ -12,59 +12,76 @@ export default function Dropdown() {
   )
   const [layerState, setLayerState] = useState()
   const [disabled, setDisabled] = useState(true)
-  const [CTAToggleActive, setCTAToggleActive] = useState()
+  const [CTAToggleActive, setCTAToggleActive] = useState(false)
   const [LoggedStatus, setLoggedStatus] = useState(true)
   const [subMenuVisible, setsubMenuVisible] = useState(false)
   const [whichSubmenu, setwhichSubmenu] = useState()
   const [UserIsAttemptinglog, setUserIsAttemptinglog] = useState(false)
 
   function ClickCTAToggleActive() {
+    // OK console.log('ClickCTAToggleActive')
     return CTAToggleActive ? Closed() : Opended()
   }
 
-  const TheLoginButton = () => {
-    return UserIsAttemptinglog ? success() : emptyState()
+  const TheLoginButton = useMemo(() => {
+    // ok console.log('TheLoginButton')
+    return TheLoginButtonActioned()
+  }, [UserIsAttemptinglog])
+
+  function TheLoginButtonActioned() {
+    // ok console.log('TheLoginButtonActioned')
+    return UserIsAttemptinglog ? success : emptyState
   }
 
   const backFromSubMenu = () => {
+    // OK console.log('backFromSubMenu')
     setsubMenuVisible(false)
   }
   const goToMyAccount = () => {
+    // OK console.log('goToMyAccount')
     setsubMenuVisible(true)
     setwhichSubmenu(1)
   }
   const goToMyCredits = () => {
+    // OK console.log('goToMyCredits')
     setsubMenuVisible(true)
     setwhichSubmenu(0)
   }
 
   const subMenu = () => {
+    // OK console.log('subMenu')
     return whichSubmenu ? myAccount() : myCredits()
   }
-  const NavigationMenuLoggedIn = () => {
-    // return subMenuVisible & !myCreditsVisible ? myAccount() : Initial()
+  const NavigationMenuLoggedInWithMemo = useMemo(() => {
+    // OK console.log('NavigationMenuLoggedInWithMemo')
+    return NavigationMenuLoggedIn()
+  }, [subMenuVisible])
+
+  function NavigationMenuLoggedIn() {
+    // OK console.log('NavigationMenuLoggedIn')
     return subMenuVisible ? subMenu() : Initial()
   }
 
-  const doLogOut = () => {
+  function doLogOut() {
+    // OK console.log('dologout')
     setLayerState(styles.layerdrawerVerticalOff)
     setTimeout(() => {
       setLoggedStatus(false)
       setCallToActionState(styles.arrowPointingDown)
       setDisabled(true)
-
       setCTAToggleActive(false)
-      setsubMenuVisible(false)
       setUserIsAttemptinglog(false)
     }, 300)
   }
 
-  const doLogIn = () => {
+  function doLogIn() {
+    // OK console.log('doLogIn')
     setUserIsAttemptinglog(true)
     setTimeout(() => {
       setLayerState(styles.layerdrawerVerticalOff)
       setCallToActionState(styles.arrowPointingDown)
-      setDisabled(false)
+      setsubMenuVisible(false)
+      setDisabled(true)
       setCTAToggleActive(false)
     }, 500)
     setTimeout(() => {
@@ -73,40 +90,55 @@ export default function Dropdown() {
   }
 
   const Closed = () => {
+    // OK console.log('closed')
     setLayerState(styles.layerdrawerVerticalOff)
     setCallToActionState(styles.arrowPointingDown)
     setDisabled(!disabled)
     setCTAToggleActive(prevValue => !prevValue)
-    setsubMenuVisible(false)
   }
 
   const Opended = () => {
+    // OK console.log('opened')
     setLayerState(styles.layerdrawerVerticalOn)
     setCallToActionState(styles.CTAinvisible)
     setDisabled(!disabled)
     setCTAToggleActive(true)
+    setsubMenuVisible(false)
   }
 
   const ref = useOnclickOutside(
     () => {
+      // OK console.log('ref')
       setLayerState(styles.layerdrawerVerticalOff)
       setCallToActionState(styles.arrowPointingDown)
       setDisabled(!disabled)
       setCTAToggleActive(prevValue => !prevValue)
-      setsubMenuVisible(false)
     },
     {disabled}
   )
 
-  const ActionsArea = () => {
-    return LoggedStatus ? loggedIn() : loggedOut()
+  const ActionsAreaWithMemo = useMemo(() => {
+    // ok     console.log('ActionsAreaWithMemo')
+    return ActionsArea()
+  }, [CTAToggleActive, LoggedStatus])
+
+  function ActionsArea() {
+    // ok console.log('ActionsArea')
+    return LoggedStatus ? loggedIn : loggedOut
   }
 
   const NavigationMenu = () => {
-    return LoggedStatus ? NavigationMenuLoggedIn() : NavigationMenuLoggedOut()
+    /// /// // / / / // / /
+    /// / // /
+    /// ///
+    ///
+    // console.log('NavigationMenu')
+    return LoggedStatus
+      ? NavigationMenuLoggedInWithMemo
+      : NavigationMenuLoggedOutWithMemo
   }
 
-  const loggedIn = () => {
+  function loggedIn() {
     return (
       <div className={styles.actionsArea + ' ' + CallToActionState}>
         <Button
@@ -115,7 +147,7 @@ export default function Dropdown() {
           design="flat"
           className={'sui-AtomButton--empty' + ' ' + styles.seachbtn}
         >
-          <img alt="icon burguer-menu" src="img/messages.svg" />
+          <img alt="icon burguer-menu" src="img/search.svg" />
         </Button>
         <Button
           tabIndex={0}
@@ -123,7 +155,7 @@ export default function Dropdown() {
           design="flat"
           className={'sui-AtomButton--empty' + ' ' + styles.seachbtn}
         >
-          <img alt="icon burguer-menu" src="img/search.svg" />
+          <img alt="icon burguer-menu" src="img/messages.svg" />
         </Button>
         <button tabIndex={0} className={styles.newActionButton}>
           <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
@@ -133,6 +165,7 @@ export default function Dropdown() {
         <div
           tabIndex={0}
           className={styles.buttonCTA}
+          role="button"
           onClick={ClickCTAToggleActive}
         >
           <MoleculeAvatar
@@ -153,7 +186,7 @@ export default function Dropdown() {
     )
   }
 
-  const myCredits = () => {
+  function myCredits() {
     return (
       <>
         <nav
@@ -193,7 +226,7 @@ export default function Dropdown() {
     )
   }
 
-  const myAccount = () => {
+  function myAccount() {
     return (
       <>
         <nav
@@ -232,7 +265,14 @@ export default function Dropdown() {
       </>
     )
   }
-  const Initial = () => {
+
+  // const Whatever = useMemo(() => {
+  //   return Initial()
+  // }, [])
+
+  function Initial() {
+    // not being called evertime
+
     return (
       <>
         <nav
@@ -298,7 +338,13 @@ export default function Dropdown() {
     )
   }
 
+  const NavigationMenuLoggedOutWithMemo = useMemo(() => {
+    // OK console.log('NavigationMenuLoggedInWithMemo')
+    return NavigationMenuLoggedOut()
+  }, [UserIsAttemptinglog])
+
   function NavigationMenuLoggedOut() {
+    // OK console.log('NavigationMenuLoggedOut')
     return (
       <>
         <nav
@@ -342,7 +388,9 @@ export default function Dropdown() {
     )
   }
 
-  const emptyState = () => {
+  function emptyState() {
+    /// ///////////////////// this one is called 4 times
+    console.log('emptyState')
     return (
       <Button
         tabIndex={0}
@@ -357,7 +405,9 @@ export default function Dropdown() {
       </Button>
     )
   }
-  const success = () => {
+  function success() {
+    /// ///////////////////// this one is called 4 times
+    //    console.log('success')
     return (
       <Button
         tabIndex={0}
@@ -366,12 +416,14 @@ export default function Dropdown() {
         fullWidth
         className={'sui-AtomButton--empty' + ' ' + styles.seachbtn}
         isLoading
+        isSubmit
       >
         Log-in
       </Button>
     )
   }
-  const loggedOut = () => {
+  function loggedOut() {
+    /// ///////////////////// this one is called 4 times on REF console.log('loggedOut')
     return (
       <div className={styles.actionsArea + ' ' + CallToActionState}>
         <Button
@@ -418,7 +470,7 @@ export default function Dropdown() {
             </>
           </Link>
 
-          <ActionsArea />
+          <ActionsAreaWithMemo />
         </div>
 
         <div
