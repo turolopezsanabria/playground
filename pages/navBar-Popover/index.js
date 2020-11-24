@@ -50,7 +50,11 @@ export default function NavBar() {
               }
             >
               <div>
-                <Button color="neutral" className="sui-AtomButton--empty">
+                <Button
+                  design="flat"
+                  color="neutral"
+                  className="sui-AtomButton--empty"
+                >
                   <img alt="icon burguer-menu" src="img/burger.svg" />
                 </Button>
                 {/* <Button size="small" color="neutral">
