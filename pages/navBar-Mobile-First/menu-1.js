@@ -42,7 +42,7 @@ const NavigationMenu = () => {
             <span className={styles.label}>Mis búsquedas</span>
           </li>
           <li>
-            <img alt="icon burguer-menu" src="img/credit.svg" />
+            <img alt="icon burguer-menu" src="img/credits.svg" />
             <span className={styles.label}>Mis creditos</span>
             <img
               className={styles.nav_arrow}
