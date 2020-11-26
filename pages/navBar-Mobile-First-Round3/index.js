@@ -473,6 +473,10 @@ export default function Dropdown() {
     console.log('functionloggedOut')
     return (
       <div className={styles.actionsArea + ' ' + CallToActionState}>
+        <button className={styles.newActionButton}>
+          <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
+          <span>Publicar</span>
+        </button>
         <Button
           color="neutral"
           design="flat"
@@ -480,10 +484,7 @@ export default function Dropdown() {
         >
           <img alt="icon burguer-menu" src="img/heart.svg" />
         </Button>
-        <button className={styles.newActionButton}>
-          <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
-          <span>Publicar</span>
-        </button>
+
         <Button onClick={ClickCTAToggleActive} color="" design="flat">
           Iniciar sesión
         </Button>

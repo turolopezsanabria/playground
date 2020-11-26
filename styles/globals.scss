@@ -193,3 +193,7 @@ ul {
 .sui-AtomButton{
   border-radius: $bdrs-base;
 }
+
+.sui-AtomButton + .sui-AtomButton {
+  margin-left: 0;
+}
