@@ -18,11 +18,28 @@ export default function NavBar() {
   const [UserIsAttemptinglog, setUserIsAttemptinglog] = useState(false)
 
   const MenuItem = props => {
+    console.log('Why am I rendering allll the time?')
     return (
       <>
         <li onClick={props.onClickEnabled ? props.theFunction : null}>
-          <img alt={props.label} src={props.image} />
+          {props.avatar ? (
+            <MoleculeAvatar
+              size={AVATAR_SIZES.SMALL}
+              name="John Maplethorp"
+              src="img/user-2.png"
+            />
+          ) : (
+            <img alt={props.label} src={props.image} />
+          )}
           <span className={styles.label}>{props.label}</span>
+
+          {props.isSubMenu === true && (
+            <img
+              className={styles.nav_arrow}
+              alt="navigation arrow"
+              src="img/chevron_right.svg"
+            />
+          )}
         </li>
       </>
     )
@@ -32,16 +49,9 @@ export default function NavBar() {
     onClickEnabled: PropTypes.bool,
     theFunction: PropTypes.func,
     label: PropTypes.string.isRequired,
-    image: PropTypes.string
+    image: PropTypes.string,
+    isSubMenu: PropTypes.bool
   }
-  // function MenuItem({props.image, label}) {
-  //   return (
-  //     <li>
-  //       <img alt={label} src={image} />
-  //       <span className={styles.label}>{label}</span>
-  //     </li>
-  //   )
-  // }
 
   // User is Logged-in
   // Navigation Menu
@@ -53,19 +63,13 @@ export default function NavBar() {
           className={styles.navigation_menu}
         >
           <ul>
-            <li onClick={goToMyAccount}>
-              <MoleculeAvatar
-                size={AVATAR_SIZES.SMALL}
-                name="John Maplethorp"
-                src="img/user-2.png"
-              />
-              <span className={styles.label}>john.maplethorp@gmail.com</span>
-              <img
-                className={styles.nav_arrow}
-                alt="navigation arrow"
-                src="img/chevron_right.svg"
-              />
-            </li>
+            <MenuItem
+              avatar
+              label="john.maplethorp@gmail.com"
+              onClickEnabled
+              theFunction={goToMyAccount}
+              isSubMenu
+            />
             <MenuItem image="img/anuncios.svg" label="Mis anuncios" />
             <MenuItem image="img/messages.svg" label="Mis mensajes" />
             <MenuItem image="img/heart.svg" label="Mis favoritos" />
@@ -90,19 +94,15 @@ export default function NavBar() {
           className={styles.navigation_menu}
         >
           <ul>
-            <li onClick={backFromSubMenu}>
-              <img alt="navigation arrow" src="img/chevron_left.svg" />
-              <span className={styles.label}>Volver al menú</span>
-            </li>
+            <MenuItem
+              image="img/chevron_left.svg"
+              label="Volver al menú"
+              onClickEnabled
+              theFunction={backFromSubMenu}
+            />
             <hr className={styles.menu_divisor} />
-            <li>
-              <MoleculeAvatar
-                size={AVATAR_SIZES.SMALL}
-                name="John Maplethorp"
-                src="img/user-2.png"
-              />
-              <span className={styles.label}>Datos de mi cuenta</span>
-            </li>
+            <MenuItem avatar label="Datos de mi cuenta" />
+
             <MenuItem image="img/privacy.svg" label="Gestionar privacidad" />
             <MenuItem image="img/datos.svg" label="Descargar mis datos" />
             <hr className={styles.menu_divisor} />
