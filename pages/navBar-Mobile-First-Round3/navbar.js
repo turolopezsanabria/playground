@@ -5,7 +5,9 @@ import Button from '@s-ui/react-atom-button'
 import AtomInput from '@s-ui/react-atom-input'
 import MoleculeAvatar, {AVATAR_SIZES} from '@s-ui/react-molecule-avatar'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
+// const ComponentRow = props => {
 export default function NavBar() {
   const [CallToActionState, setCallToActionState] = useState()
   const [drawerState, setDrawerState] = useState()
@@ -15,14 +17,31 @@ export default function NavBar() {
   const [subMenuVisible, setsubMenuVisible] = useState(false)
   const [UserIsAttemptinglog, setUserIsAttemptinglog] = useState(false)
 
-  function MenuItem({image, label}) {
+  const MenuItem = props => {
     return (
-      <li>
-        <img alt={label} src={image} />
-        <span className={styles.label}>{label}</span>
-      </li>
+      <>
+        <li onClick={props.onClickEnabled ? props.theFunction : null}>
+          <img alt={props.label} src={props.image} />
+          <span className={styles.label}>{props.label}</span>
+        </li>
+      </>
     )
   }
+  MenuItem.propTypes = {
+    avatar: PropTypes.bool,
+    onClickEnabled: PropTypes.bool,
+    theFunction: PropTypes.func,
+    label: PropTypes.string.isRequired,
+    image: PropTypes.string
+  }
+  // function MenuItem({props.image, label}) {
+  //   return (
+  //     <li>
+  //       <img alt={label} src={image} />
+  //       <span className={styles.label}>{label}</span>
+  //     </li>
+  //   )
+  // }
 
   // User is Logged-in
   // Navigation Menu
@@ -87,10 +106,12 @@ export default function NavBar() {
             <MenuItem image="img/privacy.svg" label="Gestionar privacidad" />
             <MenuItem image="img/datos.svg" label="Descargar mis datos" />
             <hr className={styles.menu_divisor} />
-            <li onClick={doLogOut}>
-              <img alt="icon burguer-menu" src="img/exit.svg" />
-              <span className={styles.label}>Cerrar sesión</span>
-            </li>
+            <MenuItem
+              image="img/exit.svg"
+              label="Cerrar sesión"
+              onClickEnabled
+              theFunction={doLogOut}
+            />
           </ul>
         </nav>
       </>
