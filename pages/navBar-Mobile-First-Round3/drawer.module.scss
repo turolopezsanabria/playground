@@ -1,7 +1,7 @@
 @import '~@s-ui/theme/lib/index.scss';
 @import '~@adv-ui/ma-theme/lib/index.scss';
 
-.layerdrawerVertical{
+.drawer{
   background: $c-white;
     padding: $p-m;
     display: none;
@@ -14,8 +14,8 @@
     min-width: 312px;
 }
 
-.layerdrawerVerticalOn {
-    @keyframes drawerVerticalOn {
+.drawerOn {
+    @keyframes drawerOn {
       from {
         top: -500px;
       }
@@ -24,12 +24,12 @@
       }
     }
     display: block;
-    animation-name: drawerVerticalOn;
+    animation-name: drawerOn;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
-.layerdrawerVerticalOff{
-  @keyframes drawerVerticalOff {
+.drawerOff{
+  @keyframes drawerOff {
     from {
       top: 64px;
     }
@@ -38,7 +38,7 @@
     }
   }
   display: block;
-  animation-name: drawerVerticalOff;
+  animation-name: drawerOff;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
@@ -71,7 +71,7 @@
   height: 40px;
   font-size: 16px;
   padding: 0 $p-base;
-  margin: 0 $p-base*2 0 $p-base;
+  margin: 0 $p-base 0 $p-base/2;
   font-family: 'Rubik', sans-serif;
   color: $c-gray-dark-4;
   span{
@@ -84,82 +84,52 @@
     outline:none;
   }
 }
+.buttonCTA{
+  display: flex;
+  align-items: center;
+  
+  &:focus{
+    outline: none;
+  }
+}
 
 .arrowPointingDown{
-  // position: absolute;
-  // right: $m-l;
   align-items: center;
   display: flex;
   justify-content: center;
-  .buttonCTA{
-    display: flex;
-   
-   
+  
+  .chevron{
+    @keyframes RotateCloseBack {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(180deg);
+      }
+    }
+    animation-name: RotateCloseBack;
   }
-  .buttonClose{
-    // display: block;
-  //   @keyframes RotateCloseBack {
-  //     from {
-  //       transform: rotate(0deg);
-  //     }
-  //     to {
-  //       transform: rotate(180deg);
-  //     }
-  //   }
-  //   animation-name: RotateCloseBack;
-  // animation-duration: 0.5s;
-  // animation-fill-mode: both;
-  transform: rotate(180deg);
-    margin-left: 4px;
-    // opacity: 1;
-  }
-  .newActionButton{
-    display: flex;
-  }
-  // .buttonClose{
-  //   display: none;
-  // }
-  .seachbtn{
-    display: block;
-  }
+ 
 }
-.buttonCTA{
-&:focus{
-  outline: none;
+
+.chevron{
+  margin-left: 4px;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
-}
-.CTAinvisible {
+.arrowPointingUp {
   display: flex;
-  // width: 40px;
   justify-content: center;
-  .buttonCTA{
-    display: flex;
-  align-items: center;
-  }
-  .newActionButton{
-    display: none;
-  }
-  // .buttonClose{
-  //   display: block;
-  // }
-  .buttonClose{
-
-  //   @keyframes RotateClose {
-  //     from {
-  //       transform: rotate(180deg);
-  //     }
-  //     to {
-  //       transform: rotate(0deg);
-  //     }
-  //   }
-  //   animation-name: RotateClose;
-  // animation-duration: 0.5s;
-  // animation-fill-mode: forwards;
-
-    margin-left: 4px;
-  }
-  .seachbtn{
-    display: none;
+  .chevron{
+    @keyframes RotateClose {
+      from {
+        transform: rotate(180deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+    animation-name: RotateClose;
   }
 }
 .actionsArea{
@@ -169,10 +139,7 @@
   right: $m-base*2;
 }
 
-
-
-.navigation_menu {
-  // this one between comments is just for prototyping, should be changed in Milanuncios Theme
+.navigation_menu { 
   .sui-AtomButton + .sui-AtomButton {
     margin-left: 0px;
   }
@@ -192,14 +159,14 @@
       font-size: 18px;
     }
     padding: $m-base*2;
-
     input{
       margin-bottom: $m-base;
+      border-radius: $bdrs-base;
       -webkit-appearance: none;
       font-size: 16px;
     }
   }
-  //
+
   ul {
     font-family: 'Rubik', sans-serif;
     color: $c-gray-dark-3;
@@ -228,42 +195,6 @@
   }
 }
 
-.drawer {
-  @keyframes opendrawer {
-    from {
-      right: -224px;
-    }
-    to {
-      right: 0;
-    }
-  }
-  @keyframes closedrawer {
-    from {
-      right: 0;
-    }
-    to {
-      right: -224px;
-    }
-  }
-  width: 224px;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  background: $c-white;
-  height: 100vh;
-  top: 64px;
-  right: -224px;
-  .true {
-    animation-name: opendrawer;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-  }
-  .false {
-    animation-name: closedrawer;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-  }
-}
 HR.menu_divisor{
   border: none;
   display: block;
@@ -293,7 +224,7 @@ HR.menu_divisor{
 }
 
 @media (min-width: 720px) {
-  .layerdrawerVertical{
+  .drawer{
     max-width: 312px;
     min-width: 312px;
     right: 0;
@@ -305,37 +236,5 @@ HR.menu_divisor{
   .logoMobile {
     margin: $m-l;
     display: none;
-  }
-  
-  .arrowPointingDown{
-    
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    
-    .buttonCTA{
-      display: flex;
-      align-items: center;
-    }
-    .newActionButton{
-      display: flex;
-    }
-    
-  }
-  .CTAinvisible {
-  
-    display: flex;
-    justify-content: center;
-    .buttonCTA{
-      display: flex;
-    align-items: center;
-    }
-    .newActionButton{
-      display: flex;
-    }
-
-    .seachbtn{
-      display: block;
-    }
   }
 }

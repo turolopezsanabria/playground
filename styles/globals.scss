@@ -140,16 +140,16 @@ ul {
   min-height: 100vh;
 }
 
-.invisible_When_Mobile{
+.invisible_When_Mobile {
   display: none;
 }
 
 @media (min-width: 992px) {
-  .MA_current_Desktop{
+  .MA_current_Desktop {
     display: block;
     padding: $p-base * 2;
     background: $c-white;
-    img{
+    img {
       width: 100%;
     }
   }
@@ -179,19 +179,21 @@ ul {
   border: 0;
 }
 
-.sui-MoleculeAvatar--small{
+.sui-MoleculeAvatar--small {
   width: 24px;
-    min-width: 24px;
-    height: 24px;
-};
-.sui-MoleculeAvatar--medium{
+  min-width: 24px;
+  height: 24px;
+}
+.sui-MoleculeAvatar--medium {
   width: 40px;
-    min-width: 40px;
-    height: 40px;
-};
+  min-width: 40px;
+  height: 40px;
+}
 
-.sui-AtomButton{
+.sui-AtomButton {
   border-radius: $bdrs-base;
+  font-family: 'Rubik';
+  font-weight: normal;
 }
 
 .sui-AtomButton + .sui-AtomButton {
