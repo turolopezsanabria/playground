@@ -1,6 +1,6 @@
-import React, {useState, useMemo, Fragment} from 'react'
+import React, {useState, useMemo} from 'react'
 import useOnclickOutside from 'react-cool-onclickoutside'
-import styles from './drawer.module.scss'
+import styles from './navbar-round3.module.scss'
 import Button from '@s-ui/react-atom-button'
 import AtomInput from '@s-ui/react-atom-input'
 import MoleculeAvatar, {AVATAR_SIZES} from '@s-ui/react-molecule-avatar'
@@ -18,29 +18,46 @@ export default function NavBar() {
   const [UserIsAttemptinglog, setUserIsAttemptinglog] = useState(false)
 
   const MenuItem = props => {
-    console.log('Why am I rendering allll the time?')
+    console.log('I dont know')
     return (
       <>
-        <li onClick={props.onClickEnabled ? props.theFunction : null}>
-          {props.avatar ? (
-            <MoleculeAvatar
-              size={AVATAR_SIZES.SMALL}
-              name="John Maplethorp"
-              src="img/user-2.png"
-            />
-          ) : (
-            <img alt={props.label} src={props.image} />
-          )}
-          <span className={styles.label}>{props.label}</span>
+        {props.isLink ? (
+          <Link href={props.theLink}>
+            <li>
+              {props.avatar ? (
+                <MoleculeAvatar
+                  size={AVATAR_SIZES.SMALL}
+                  name="John Maplethorp"
+                  src="img/user-2.png"
+                />
+              ) : (
+                <img alt={props.label} src={props.image} />
+              )}
+              <span className={styles.label}>{props.label}</span>
+            </li>
+          </Link>
+        ) : (
+          <li onClick={props.onClickEnabled ? props.theFunction : null}>
+            {props.avatar ? (
+              <MoleculeAvatar
+                size={AVATAR_SIZES.SMALL}
+                name="John Maplethorp"
+                src="img/user-2.png"
+              />
+            ) : (
+              <img alt={props.label} src={props.image} />
+            )}
+            <span className={styles.label}>{props.label}</span>
 
-          {props.isSubMenu === true && (
-            <img
-              className={styles.nav_arrow}
-              alt="navigation arrow"
-              src="img/chevron_right.svg"
-            />
-          )}
-        </li>
+            {props.isSubMenu === true && (
+              <img
+                className={styles.nav_arrow}
+                alt="navigation arrow"
+                src="img/chevron_right.svg"
+              />
+            )}
+          </li>
+        )}
       </>
     )
   }
@@ -50,7 +67,9 @@ export default function NavBar() {
     theFunction: PropTypes.func,
     label: PropTypes.string.isRequired,
     image: PropTypes.string,
-    isSubMenu: PropTypes.bool
+    isSubMenu: PropTypes.bool,
+    isLink: PropTypes.bool,
+    theLink: PropTypes.string
   }
 
   // User is Logged-in
@@ -70,9 +89,24 @@ export default function NavBar() {
               theFunction={goToMyAccount}
               isSubMenu
             />
-            <MenuItem image="img/anuncios.svg" label="Mis anuncios" />
-            <MenuItem image="img/messages.svg" label="Mis mensajes" />
-            <MenuItem image="img/heart.svg" label="Mis favoritos" />
+            <MenuItem
+              image="img/anuncios.svg"
+              label="Mis anuncios"
+              isLink
+              theLink="./MisAnuncios"
+            />
+            <MenuItem
+              image="img/messages.svg"
+              label="Mis mensajes"
+              isLink
+              theLink="./Mensajes"
+            />
+            <MenuItem
+              image="img/heart.svg"
+              label="Mis favoritos"
+              isLink
+              theLink="./Favoritos"
+            />
             <MenuItem image="img/bell.svg" label="Mis búsquedas" />
             <hr className={styles.menu_divisor} />
             <MenuItem image="img/destacar.svg" label="Destacar anuncios" />
@@ -101,7 +135,12 @@ export default function NavBar() {
               theFunction={backFromSubMenu}
             />
             <hr className={styles.menu_divisor} />
-            <MenuItem avatar label="Datos de mi cuenta" />
+            <MenuItem
+              avatar
+              isLink
+              theLink="./MiCuenta"
+              label="Datos de mi cuenta"
+            />
 
             <MenuItem image="img/privacy.svg" label="Gestionar privacidad" />
             <MenuItem image="img/datos.svg" label="Descargar mis datos" />
@@ -270,27 +309,31 @@ export default function NavBar() {
   const LoggedIn = () => {
     return (
       <div className={styles.actionsArea + ' ' + CallToActionState}>
-        <Button
-          tabIndex={0}
-          color="neutral"
-          design="flat"
-          className="sui-AtomButton--empty"
-        >
-          <img alt="icon burguer-menu" src="img/heart.svg" />
-        </Button>
-        <Button
-          tabIndex={0}
-          color="neutral"
-          design="flat"
-          className="sui-AtomButton--empty"
-        >
-          <img alt="icon burguer-menu" src="img/messages.svg" />
-        </Button>
-        <button tabIndex={0} className={styles.newActionButton}>
-          <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
-          <span>Publicar</span>
-        </button>
-
+        <Link href="./Favoritos">
+          <Button
+            color="neutral"
+            design="flat"
+            className="sui-AtomButton--empty"
+          >
+            <img alt="icon burguer-menu" src="img/heart.svg" />
+          </Button>
+        </Link>
+        <Link href="./Mensajes">
+          <Button
+            tabIndex={0}
+            color="neutral"
+            design="flat"
+            className="sui-AtomButton--empty"
+          >
+            <img alt="icon burguer-menu" src="img/messages.svg" />
+          </Button>
+        </Link>
+        <Link href="./Publicar">
+          <button tabIndex={0} className={styles.newActionButton}>
+            <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
+            <span>Publicar</span>
+          </button>
+        </Link>
         <div
           tabIndex={0}
           className={styles.buttonCTA}
@@ -320,9 +363,15 @@ export default function NavBar() {
   const LoggedOut = () => {
     return (
       <div className={styles.actionsArea + ' ' + CallToActionState}>
-        <Button color="neutral" design="flat" className="sui-AtomButton--empty">
-          <img alt="icon burguer-menu" src="img/heart.svg" />
-        </Button>{' '}
+        <Link href="./Favoritos">
+          <Button
+            color="neutral"
+            design="flat"
+            className="sui-AtomButton--empty"
+          >
+            <img alt="icon burguer-menu" src="img/heart.svg" />
+          </Button>
+        </Link>
         <button className={styles.newActionButton}>
           <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
           <span>Publicar</span>
@@ -343,7 +392,7 @@ export default function NavBar() {
   return (
     <>
       <div className={styles.header}>
-        <Link href="">
+        <Link href="/navBar-Mobile-First-Round3">
           <a>
             <img
               alt="logo"

@@ -38,10 +38,13 @@ body {
 }
 .fade {
   @keyframes fade {
-    from {
+    0% {
       opacity: 0;
     }
-    to {
+    50% {
+      opacity: 0;
+    }
+    100% {
       opacity: 1;
     }
   }
@@ -130,6 +133,7 @@ ul {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: white;
 }
 .main-fullWidth {
   position: relative;
@@ -148,9 +152,11 @@ ul {
   .MA_current_Desktop {
     display: block;
     padding: $p-base * 2;
+    padding: 0;
     background: $c-white;
     img {
       width: 100%;
+      height: auto;
     }
   }
 }
