@@ -24,7 +24,7 @@ export default function Home() {
             </a>
           </h1>
           <ul>
-            <li>
+            {/* <li>
               <Link href="/navBar-Popover">
                 <a>ABC Popover</a>
               </Link>
@@ -33,10 +33,10 @@ export default function Home() {
               <Link href="/navBar-Drawer">
                 <a>ABC Drawer Lateral</a>
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link href="/navBar-Mobile-First">
-                <a>Proposal Mobile 1st</a>
+              <Link href="/navBar-Mobile-First-Round3">
+                <a>NavBar</a>
               </Link>
             </li>
           </ul>
