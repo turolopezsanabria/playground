@@ -11,6 +11,10 @@ export default function index() {
             <title>Milanuncios - MiCuenta</title>
           </Head>
           <NavBar />
+          <div className="MA_current_Desktop fade">
+            <img src="img/2020-11-MA-myAccount.png" />
+            <img src="img/2020-11-MA-footer.png" />
+          </div>
         </div>
       </div>
     </>
