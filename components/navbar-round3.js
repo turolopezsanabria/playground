@@ -109,9 +109,24 @@ export default function NavBar() {
             />
             <MenuItem image="img/bell.svg" label="Mis búsquedas" />
             <hr className={styles.menu_divisor} />
-            <MenuItem image="img/destacar.svg" label="Destacar anuncios" />
-            <MenuItem image="img/MA_express.svg" label="Milanuncios Express" />
-            <MenuItem image="img/help.svg" label="Ayuda" />
+            <MenuItem
+              image="img/destacar.svg"
+              label="Destacar anuncios"
+              isLink
+              theLink="./Destacar"
+            />
+            <MenuItem
+              image="img/MA_express.svg"
+              label="Milanuncios Express"
+              isLink
+              theLink="./Express"
+            />
+            <MenuItem
+              image="img/help.svg"
+              label="Ayuda"
+              isLink
+              theLink="./Ayuda"
+            />
           </ul>
         </nav>
       </>
@@ -210,15 +225,18 @@ export default function NavBar() {
           </div>
           <ul>
             <hr className={styles.menu_divisor} />
-
-            <li>
-              <img alt="icon burguer-menu" src="img/MA_express.svg" />
-              <span className={styles.label}>Milanuncios Express</span>
-            </li>
-            <li>
-              <img alt="icon burguer-menu" src="img/help.svg" />
-              <span className={styles.label}>Ayuda</span>
-            </li>
+            <MenuItem
+              image="img/MA_express.svg"
+              label="Milanuncios Express"
+              isLink
+              theLink="./Express"
+            />
+            <MenuItem
+              image="img/help.svg"
+              label="Ayuda"
+              isLink
+              theLink="./Ayuda"
+            />
           </ul>
         </nav>
       </>

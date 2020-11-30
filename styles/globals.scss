@@ -148,7 +148,7 @@ ul {
   display: none;
 }
 
-@media (min-width: 992px) {
+// @media (min-width: 992px) {
   .MA_current_Desktop {
     display: block;
     padding: $p-base * 2;
@@ -159,7 +159,7 @@ ul {
       height: auto;
     }
   }
-}
+// }
 
 @media (hover: hover) {
   .home-navigation {
