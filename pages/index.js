@@ -35,7 +35,7 @@ export default function Home() {
               </Link>
             </li> */}
             <li>
-              <Link href="/navBar-Mobile-First-Round3">
+              <Link href="/navBar-Home">
                 <a>NavBar</a>
               </Link>
             </li>

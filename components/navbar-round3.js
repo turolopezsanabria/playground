@@ -410,7 +410,7 @@ export default function NavBar() {
   return (
     <>
       <div className={styles.header}>
-        <Link href="/navBar-Mobile-First-Round3">
+        <Link href="/navBar-Home">
           <a>
             <img
               alt="logo"
