@@ -20,7 +20,13 @@ export default function index() {
                 src="img/2020-11-MA-PTA-42.png"
               />
             </Link>
-            <img src="img/2020-11-MA-PTA-43.png" />
+            <Link href="./Results">
+              <img
+                className="forceMeToLookClickableForPrototypes"
+                src="img/2020-11-MA-PTA-43.png"
+              />
+            </Link>
+            <img src="img/2020-11-MA-PTA-44.png" />
             <img src="img/2020-11-MA-footer.png" />
           </div>
         </div>
