@@ -21,12 +21,12 @@ export default function index() {
                 src="img/2020-11-MA-home-1.png"
               />
             </Link>
-            <Link href="./Publicar">
+            {/* <Link href="./Publicar">
               <img
                 className="forceMeToLookClickableForPrototypes"
                 src="img/2020-11-MA-home-2.png"
               />
-            </Link>
+            </Link> */}
             <img src="img/2020-11-MA-home-3.png" />
             <img src="img/2020-11-MA-footer.png" />
           </div>
