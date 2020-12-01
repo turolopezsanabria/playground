@@ -13,8 +13,9 @@ export default function index() {
           </Head>
           <NavBar />
           <div className="MA_current_Desktop fade">
-            <Link href="./Publicar-2">
-              <img src="img/2020-11-MA-PTA-1.png" />
+            <img src="img/2020-11-MA-PTA-30.png" />
+            <Link href="./Publicar-4">
+              <img src="img/2020-11-MA-PTA-31.png" />
             </Link>
             <img src="img/2020-11-MA-footer.png" />
           </div>
