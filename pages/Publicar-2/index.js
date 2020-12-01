@@ -15,7 +15,10 @@ export default function index() {
           <div className="MA_current_Desktop fade">
             <img src="img/2020-11-MA-PTA-20.png" />
             <Link href="./Publicar-3">
-              <img src="img/2020-11-MA-PTA-21.png" />
+              <img
+                className="forceMeToLookClickableForPrototypes"
+                src="img/2020-11-MA-PTA-21.png"
+              />
             </Link>
             <img src="img/2020-11-MA-footer.png" />
           </div>

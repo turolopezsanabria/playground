@@ -157,9 +157,10 @@ ul {
     img {
       width: 100%;
       height: auto;
-      &:hover{
-        cursor: pointer;
-      }
+      
+    }
+    .forceMeToLookClickableForPrototypes{
+      cursor: pointer;
     }
   }
 // }
