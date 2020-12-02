@@ -84,7 +84,7 @@ export default function NavBar() {
           <ul>
             <MenuItem
               avatar
-              label="s.herradura@gmail.com"
+              label="mariapilar.vega@masmovil.com"
               onClickEnabled
               theFunction={goToMyAccount}
               isSubMenu
