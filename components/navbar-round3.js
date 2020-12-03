@@ -390,10 +390,12 @@ export default function NavBar() {
             <img alt="icon burguer-menu" src="img/heart.svg" />
           </Button>
         </Link>
-        <button className={styles.newActionButton}>
-          <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
-          <span>Publicar</span>
-        </button>
+        <Link href="./Publicar">
+          <button tabIndex={0} className={styles.newActionButton}>
+            <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
+            <span>Publicar</span>
+          </button>
+        </Link>
         <Button onClick={openAndCloseTheDrawer} color="neutral" design="solid">
           Iniciar sesión
         </Button>
