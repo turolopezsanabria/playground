@@ -35,7 +35,7 @@ export default function Home() {
               </Link>
             </li> */}
             <li>
-              <Link href="/navBar-Home">
+              <Link href="/navBar">
                 <a>NavBar</a>
               </Link>
             </li>
