@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from '../../components/navbar-round3.js'
+import NavBar from '../../components/navbar-round2.js'
 import Head from 'next/head'
 import Link from 'next/link'
 
