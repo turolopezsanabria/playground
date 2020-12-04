@@ -1,6 +1,6 @@
 import React, {useState, useMemo} from 'react'
 import useOnclickOutside from 'react-cool-onclickoutside'
-import styles from './navbar-round3.module.scss'
+import styles from './navbar-round2.module.scss'
 import Button from '@s-ui/react-atom-button'
 import AtomInput from '@s-ui/react-atom-input'
 import MoleculeAvatar, {AVATAR_SIZES} from '@s-ui/react-molecule-avatar'
@@ -14,34 +14,162 @@ export default function NavBar() {
   const [disabled, setDisabled] = useState(true)
   const [CTAToggleActive, setCTAToggleActive] = useState(false)
   const [LoggedStatus, setLoggedStatus] = useState(true)
+  const [subMenuVisible, setsubMenuVisible] = useState(false)
   const [UserIsAttemptinglog, setUserIsAttemptinglog] = useState(false)
 
   const MenuItem = props => {
+    console.log('I dont know')
     return (
       <>
         {props.isLink ? (
           <Link href={props.theLink}>
             <li>
-              <img alt={props.label} src={props.image} />
+              {props.avatar ? (
+                <MoleculeAvatar
+                  size={AVATAR_SIZES.SMALL}
+                  name="John Maplethorp"
+                  src="img/user-2.png"
+                />
+              ) : (
+                <img alt={props.label} src={props.image} />
+              )}
               <span className={styles.label}>{props.label}</span>
             </li>
           </Link>
         ) : (
           <li onClick={props.onClickEnabled ? props.theFunction : null}>
-            <img alt={props.label} src={props.image} />
+            {props.avatar ? (
+              <MoleculeAvatar
+                size={AVATAR_SIZES.SMALL}
+                name="John Maplethorp"
+                src="img/user-2.png"
+              />
+            ) : (
+              <img alt={props.label} src={props.image} />
+            )}
             <span className={styles.label}>{props.label}</span>
+
+            {props.isSubMenu === true && (
+              <img
+                className={styles.nav_arrow}
+                alt="navigation arrow"
+                src="img/chevron_right.svg"
+              />
+            )}
           </li>
         )}
       </>
     )
   }
   MenuItem.propTypes = {
+    avatar: PropTypes.bool,
     onClickEnabled: PropTypes.bool,
     theFunction: PropTypes.func,
     label: PropTypes.string.isRequired,
     image: PropTypes.string,
+    isSubMenu: PropTypes.bool,
     isLink: PropTypes.bool,
     theLink: PropTypes.string
+  }
+
+  // User is Logged-in
+  // Navigation Menu
+  const Initial = () => {
+    return (
+      <>
+        <nav
+          aria-labelledby="navigation menu"
+          className={styles.navigation_menu}
+        >
+          <ul>
+            <MenuItem
+              avatar
+              label="lorenaalonsosanjuan@gm..."
+              onClickEnabled
+              theFunction={goToMyAccount}
+              isSubMenu
+            />
+            <MenuItem
+              image="img/anuncios.svg"
+              label="Mis anuncios"
+              isLink
+              theLink="./MisAnuncios"
+            />
+            <MenuItem
+              image="img/messages.svg"
+              label="Mis mensajes"
+              isLink
+              theLink="./Mensajes"
+            />
+            <MenuItem
+              image="img/heart.svg"
+              label="Mis favoritos"
+              isLink
+              theLink="./Favoritos"
+            />
+            <MenuItem image="img/bell.svg" label="Mis búsquedas" />
+            <hr className={styles.menu_divisor} />
+            <MenuItem
+              image="img/destacar.svg"
+              label="Destacar anuncios"
+              isLink
+              theLink="./Destacar"
+            />
+            <MenuItem
+              image="img/MA_express.svg"
+              label="Milanuncios Express"
+              isLink
+              theLink="./Express"
+            />
+            <MenuItem
+              image="img/help.svg"
+              label="Ayuda"
+              isLink
+              theLink="./Ayuda"
+            />
+          </ul>
+        </nav>
+      </>
+    )
+  }
+
+  // User is Logged-in
+  // Sub navigation Menu "MyAccount"
+  const myAccount = () => {
+    return (
+      <>
+        <nav
+          aria-labelledby="navigation menu"
+          className={styles.navigation_menu}
+        >
+          <ul>
+            <MenuItem
+              image="img/chevron_left.svg"
+              label="Volver al menú"
+              onClickEnabled
+              theFunction={backFromSubMenu}
+            />
+            <hr className={styles.menu_divisor} />
+            <MenuItem
+              avatar
+              isLink
+              theLink="./MiCuenta"
+              label="Datos de mi cuenta"
+            />
+
+            <MenuItem image="img/privacy.svg" label="Gestionar privacidad" />
+            <MenuItem image="img/datos.svg" label="Descargar mis datos" />
+            <hr className={styles.menu_divisor} />
+            <MenuItem
+              image="img/exit.svg"
+              label="Cerrar sesión"
+              onClickEnabled
+              theFunction={doLogOut}
+            />
+          </ul>
+        </nav>
+      </>
+    )
   }
 
   // User is Logged-out
@@ -53,7 +181,7 @@ export default function NavBar() {
           aria-labelledby="navigation menu"
           className={styles.navigation_menu}
         >
-          <form>
+          <form onSubmit={() => window.alert('Submit!')}>
             <h1>Inicia sesión</h1>
             <AtomInput
               tabIndex={0}
@@ -99,7 +227,7 @@ export default function NavBar() {
             <hr className={styles.menu_divisor} />
             <MenuItem
               image="img/MA_express.svg"
-              label="Envios Milanuncios Express"
+              label="Milanuncios Express"
               isLink
               theLink="./Express"
             />
@@ -126,64 +254,24 @@ export default function NavBar() {
     return LoggedStatus ? NavigationMenuLoggedIn : NavigationMenuLoggedOut
   }
 
+  // User is Logged-in
+  // Open the submenu MyAccount
+  const goToMyAccount = () => {
+    setsubMenuVisible(true)
+    myAccount()
+  }
+
+  // User is Logged-in
+  // Hide the submenu MyAccount
+  const backFromSubMenu = () => {
+    setsubMenuVisible(false)
+  }
+
+  // User is Logged-in
+  // Decide if the menu to show is the Initial or MyAccount
   const NavigationMenuLoggedIn = useMemo(() => {
-    return (
-      <>
-        <nav
-          aria-labelledby="navigation menu"
-          className={styles.navigation_menu}
-        >
-          <ul>
-            <MenuItem
-              image="img/user.svg"
-              label="Mi cuenta"
-              isLink
-              theLink="./MiCuenta"
-            />
-            <MenuItem
-              image="img/anuncios.svg"
-              label="Mis anuncios"
-              isLink
-              theLink="./MisAnuncios"
-            />
-            <MenuItem
-              image="img/messages.svg"
-              label="Mis mensajes"
-              isLink
-              theLink="./Mensajes"
-            />
-            <MenuItem
-              image="img/heart.svg"
-              label="Mis favoritos"
-              isLink
-              theLink="./Favoritos"
-            />
-            <MenuItem image="img/bell.svg" label="Mis búsquedas" />
-            <hr className={styles.menu_divisor} />
-            <MenuItem
-              image="img/exit.svg"
-              label="Cerrar sesión"
-              onClickEnabled
-              theFunction={doLogOut}
-            />
-            <hr className={styles.menu_divisor} />
-            <MenuItem
-              image="img/MA_express.svg"
-              label="Envios Milanuncios Express"
-              isLink
-              theLink="./Express"
-            />
-            <MenuItem
-              image="img/help.svg"
-              label="Ayuda"
-              isLink
-              theLink="./Ayuda"
-            />
-          </ul>
-        </nav>
-      </>
-    )
-  }, [LoggedStatus])
+    return subMenuVisible ? myAccount() : Initial()
+  }, [subMenuVisible])
 
   // User is Logged-in and clicks LogOut
   function doLogOut() {
@@ -201,7 +289,7 @@ export default function NavBar() {
     }, 800)
     setTimeout(() => {
       setLoggedStatus(true)
-      // setsubMenuVisible(false)
+      setsubMenuVisible(false)
     }, 1200)
   }
 
@@ -222,7 +310,7 @@ export default function NavBar() {
     setCallToActionState(styles.arrowPointingDown)
     setDisabled(false)
     setCTAToggleActive(true)
-    // setsubMenuVisible(false)
+    setsubMenuVisible(false)
   }
 
   // User is EITHER Logged-in or LoggedOut
@@ -243,7 +331,7 @@ export default function NavBar() {
           <Button
             color="neutral"
             design="flat"
-            className={'sui-AtomButton--empty' + ' ' + styles.HiddenInMobile}
+            className="sui-AtomButton--empty"
           >
             <img alt="icon burguer-menu" src="img/heart.svg" />
           </Button>
@@ -253,14 +341,14 @@ export default function NavBar() {
             tabIndex={0}
             color="neutral"
             design="flat"
-            className={'sui-AtomButton--empty' + ' ' + styles.HiddenInMobile}
+            className="sui-AtomButton--empty"
           >
             <img alt="icon burguer-menu" src="img/messages.svg" />
           </Button>
         </Link>
         <Link href="./Publicar">
           <button tabIndex={0} className={styles.newActionButton}>
-            <img alt="icon burguer-menu" src="img/PTA_24px.svg" />
+            <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
             <span>Publicar</span>
           </button>
         </Link>
@@ -273,8 +361,9 @@ export default function NavBar() {
           <MoleculeAvatar
             size={AVATAR_SIZES.MEDIUM}
             name="John Maplethorp"
-            src="img/user-1.png"
+            src="img/user-2.png"
           >
+            {' '}
             <MoleculeAvatar.Badge status="success" />
           </MoleculeAvatar>
           <img
@@ -303,7 +392,7 @@ export default function NavBar() {
         </Link>
         <Link href="./Publicar">
           <button tabIndex={0} className={styles.newActionButton}>
-            <img alt="icon burguer-menu" src="img/PTA_24px.svg" />
+            <img alt="icon burguer-menu" src="img/PTA_White24px.svg" />
             <span>Publicar</span>
           </button>
         </Link>
@@ -323,7 +412,7 @@ export default function NavBar() {
   return (
     <>
       <div className={styles.header}>
-        <Link href="/navBar">
+        <Link href="/navBar-Home">
           <a>
             <img
               alt="logo"
