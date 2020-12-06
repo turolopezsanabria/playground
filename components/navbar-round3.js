@@ -161,13 +161,6 @@ export default function NavBar() {
             <MenuItem image="img/bell.svg" label="Mis búsquedas" />
             <hr className={styles.menu_divisor} />
             <MenuItem
-              image="img/exit.svg"
-              label="Cerrar sesión"
-              onClickEnabled
-              theFunction={doLogOut}
-            />
-            <hr className={styles.menu_divisor} />
-            <MenuItem
               image="img/MA_express.svg"
               label="Envios Milanuncios Express"
               isLink
@@ -178,6 +171,13 @@ export default function NavBar() {
               label="Ayuda"
               isLink
               theLink="./Ayuda"
+            />
+            <hr className={styles.menu_divisor} />
+            <MenuItem
+              image="img/exit.svg"
+              label="Cerrar sesión"
+              onClickEnabled
+              theFunction={doLogOut}
             />
           </ul>
         </nav>
