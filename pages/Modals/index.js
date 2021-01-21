@@ -20,12 +20,12 @@ export default function NoHeaderModal() {
         // withoutIndentation
         isOpen
         floatingIconClose
-        header="El header de Nuria"
+        header="Header"
         iconClose={<IconClose />}
       >
         <h1 className={styles.heading}>Title</h1>
         <p className={styles.paragraph}>
-          Nunc dignissim porttitor gravida. Phasellus lacus odio, porta id
+          Content ignissim porttitor gravida. Phasellus lacus odio, porta id
           euismod viverra, lobortis id sapien.
         </p>
         <div className={styles.elInput}>
