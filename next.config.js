@@ -4,7 +4,7 @@ const withTM = require('next-transpile-modules')([
   '@s-ui/react-atom-icon',
   '@s-ui/react-atom-popover',
   '@s-ui/react-molecule-avatar',
-  '@adv-ui/fc-theme',
+  '@adv-ui/ma-theme',
   '@s-ui/react-hooks',
   '@s-ui/hoc',
   'react-cool-onclickoutside',
