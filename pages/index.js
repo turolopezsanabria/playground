@@ -39,6 +39,11 @@ export default function Home() {
                 <a>NavBar</a>
               </Link>
             </li>
+            <li>
+              <Link href="/Modals">
+                <a>Modal</a>
+              </Link>
+            </li>
           </ul>
         </nav>
       </main>
