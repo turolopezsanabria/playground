@@ -16,21 +16,18 @@ export default function NoHeaderModal() {
   )
   return (
     <div>
-      {/* header="My new brand modal" floatingIconClose */}
-      <MoleculeModal isOpen floatingIconClose iconClose={<IconClose />}>
-        <h1 className={styles.heading}>
-          Lorem ipsum dolor sit amet, consectetur adipis
-        </h1>
+      <MoleculeModal
+        // withoutIndentation
+        isOpen
+        floatingIconClose
+        header="El header de Nuria"
+        iconClose={<IconClose />}
+      >
+        <h1 className={styles.heading}>Title</h1>
         <p className={styles.paragraph}>
           Nunc dignissim porttitor gravida. Phasellus lacus odio, porta id
           euismod viverra, lobortis id sapien.
         </p>
-        {/* <AtomInput
-          tabIndex={0}
-          type="password"
-          name="email"
-          placeholder="Visita Concertada"
-        /> */}
         <div className={styles.elInput}>
           <MoleculeInputField
             id="comments"
