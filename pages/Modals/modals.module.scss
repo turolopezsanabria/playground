@@ -1,0 +1,15 @@
+@import '~@s-ui/theme/lib/index.scss';
+@import '~@adv-ui/fc-theme/lib/index.scss';
+
+.paragraph{
+    font-size: $fz-m;
+    color: $c-gray-d3;
+}
+
+.heading{
+    font-size: $fz-xxl;
+}
+
+.elInput{
+    margin: $m-l 0;
+}

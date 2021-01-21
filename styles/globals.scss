@@ -1,10 +1,21 @@
 @import '~@s-ui/theme/lib/index.scss';
-@import '~@adv-ui/ma-theme/lib/index.scss';
+// @import '~@adv-ui/ma-theme/lib/index.scss';
+@import '~@adv-ui/fc-theme/lib/index.scss';
 @import '~@s-ui/react-atom-button/lib/index.scss';
 @import '~@s-ui/react-atom-popover/lib/index.scss';
 @import '~@s-ui/react-atom-icon/lib/index.scss';
 @import '~@s-ui/react-atom-input/lib/index';
 @import '~@s-ui/react-molecule-avatar/lib/index';
+@import '~@s-ui/react-molecule-modal/lib/index';
+@import '~@s-ui/react-molecule-select/lib/index';
+@import '~@s-ui/react-molecule-dropdown-list/lib/index';
+@import '~@s-ui/react-molecule-input-tags/lib/index';
+@import '~@s-ui/react-molecule-input-field/lib/index';
+@import '~@s-ui/react-molecule-field/lib/index';
+@import '~@s-ui/react-atom-validation-text/lib/index';
+@import '~@s-ui/react-atom-label/lib/index';
+@import '~@s-ui/react-atom-tag/lib/index';
+@import '~@s-ui/react-atom-help-text/lib/index';
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
 $c-text-playground: rgba(255, 255, 255, 0.8);
