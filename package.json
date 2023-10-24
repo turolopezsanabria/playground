@@ -40,7 +40,7 @@
     "@s-ui/react-molecule-input-tags": "^2.13.0",
     "@s-ui/react-molecule-modal": "^1.26.0",
     "@s-ui/react-molecule-select": "^1.41.0",
-    "next": "10.0.1",
+    "next": "13.5.0",
     "next-transpile-modules": "^4.1.0",
     "react": "17.0.1",
     "react-cool-onclickoutside": "^1.5.9",
